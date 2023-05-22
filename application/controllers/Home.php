@@ -4,6 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
         public function index()
         {
-            echo "Hello";
+            $this->load->view('components/body');
         }
     }

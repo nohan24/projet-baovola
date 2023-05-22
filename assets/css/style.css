@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Coolvetica;
+    src: url("../fonts/coolvetica.ttf");
+}
+
+:root {
+    --primary: #264026;
+    --secondary: #eb7c38;
+    --background: #f9f4f4;
+    --text: #191e16;
+    --text-font: Arial, Helvetica, sans-serif;
+    --title-font: Coolvetica;
+}
+
+* {
+    font-family: var(--text-font);
+    color: var(--text);
+    background-color: var(--background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Coolvetica;
+}
