@@ -10,6 +10,7 @@
     --text: #191e16;
     --text-font: Arial, Helvetica, sans-serif;
     --title-font: Coolvetica;
+    --link: #93A893;
 }
 
 * {
@@ -25,4 +26,29 @@ h4,
 h5,
 h6 {
     font-family: Coolvetica;
+}
+
+.aside {
+    background-color: white;
+}
+
+.aside ul,
+.aside ul li,
+.aside img {
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+.aside li {
+    padding: 10px 0;
+}
+
+.side {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    height: calc(100vh);
 }
