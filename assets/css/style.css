@@ -27,6 +27,7 @@ h4,
 h5,
 h6 {
     font-family: Coolvetica;
+    color: var(--primary);
 }
 
 i {
@@ -38,7 +39,7 @@ i {
     height: 100%;
     width: 22%;
     background: white;
-    padding: 5px 15px;
+    padding: 0px 15px;
     z-index: 99;
 }
 

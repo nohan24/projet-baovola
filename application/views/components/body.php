@@ -107,8 +107,7 @@
         </nav>
 
         <main class="main py-3 px-4">
-           <h1>Welcome !</h1>
-           <!-- Content -->
+           <?php $this->load->view($content); ?>
         </main>
 
         <script>
