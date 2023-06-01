@@ -41,7 +41,7 @@
                                 <a href="#"><i class="fa-regular fa-circle"></i> Entrepôt</a>
                             </li>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Produit</a>
+                                <a href="<?php echo site_url('stock/produit'); ?>"><i class="fa-regular fa-circle"></i> Produit</a>
                             </li>
                         </ul>
                     </li>

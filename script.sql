@@ -36,15 +36,16 @@ CREATE TABLE sortie_stock(
     ProduitId INT,
     Date_sortie DATE NOT NULL,
     Quantite DOUBLE PRECISION NOT NULL,
-    Type_sortie ENUM(1,2)
+    Type_sortie SMALLINT,
     FOREIGN KEY(ProduitId) REFERENCES produit(ProduitId)
 );
+
 -- View commence par v_nomdelavue
 CREATE VIEW v_historique_entre as 
-    SELECT Date_sortie,es.Nom_produit as Nom_produit,Quantite,e.Adresse as Adresse FROM entre_stock es JOIN produit p ON es.ProduitId = p.ProduitId JOIN entrepot e ON es.EntrepotId = e.EntreId;
+    SELECT Date_entre,p.Nom_produit as Nom_produit,Quantite,e.Adresse as Adresse FROM entre_stock es JOIN produit p ON es.ProduitId = p.ProduitId JOIN entrepot e ON es.EntrepotId = e.EntrepotId;
 
 CREATE VIEW v_historique_sortie as 
-    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, es.Nom_produit as Nom_produitn, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntreId;
+    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, p.Nom_produit as Nom_produitn, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntrepotId;
 
 CREATE VIEW v_etat_stock as 
     SELECT * FROM detail_entrepot GROUP BY EntrepotId;

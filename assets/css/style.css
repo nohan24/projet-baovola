@@ -294,3 +294,9 @@ label {
     color: white;
     padding: 10px 30px;
 }
+
+.btn-2 {
+    background-color: rgb(200, 31, 31);
+    color: white;
+    padding: 5px 20px;
+}

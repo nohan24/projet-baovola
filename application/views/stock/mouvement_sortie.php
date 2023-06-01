@@ -50,11 +50,6 @@
         margin: 0 20px;
     }
 
-    .today{
-        background-color:grey;
-    }
-
-
 </style>
 
 <div class="p-1">
@@ -100,6 +95,7 @@
                 <div class="w-50 d-flex justify-content-center">
                     <div>
                         <p class="date-picked">Date actuellement choisie : <span id="picked">2/7/2022</span></p>
+                        <p class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-circle" style="font-size:10px; color: #eb7c38"></i> Date d'aujourd'hui</p>
                         <div id="calender-header" class="d-flex align-items-center justify-content-center mb-2">
                             <button id="pm"><i style="color:#264026; font-size:12px;" class="fa-solid fa-chevron-left"></i></button>
                             <span id="month" style="color:#264026; text-align:center;"></span>
