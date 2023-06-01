@@ -7,18 +7,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($mv == "sortie"){
                 $data['title'] = "Historique de sortie.";
                 $data['content'] = "stock/historique_sortie";
-                $this->load->view('components/body',$data);
             }else{
                 $data['title'] = "Historique d'entrée.";
                 $data['content'] = "stock/historique_entree";
-                $this->load->view('components/body',$data);
             }   
+            $this->load->view('components/body',$data);
         }
 
-        public function mouvement()
+        public function mouvement($mvt = "sortie")
         {
             $data['title'] = "Mouvement de stock."; 
-            $data['content'] = "stock/mouvement";
+            if($mvt == "sortie"){
+                $data['content'] = "stock/mouvement_sortie";
+            }else{
+                $data['content'] = "stock/mouvement_entree";
+            }
             $this->load->view('components/body',$data);
         }
 

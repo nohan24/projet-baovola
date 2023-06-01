@@ -61,7 +61,9 @@
     <h2 class="mb-3">Stock</h2>
     <div class="card">
         <div class="row">
-            <h4>Mouvement de sortie</h4>
+            <div class="col-10 mb-2 d-flex align-items-center">
+                <h4 class="me-4">Mouvement de sortie</h4> <a href="<?php echo site_url("stock/mouvement/entree"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement d'entrée ici</a>
+            </div>
             <form action="#" method="post" class="d-flex gap-2 px-5 py-3">
                 <input type="hidden" name="date" id="date-mvt">
                 <div class="w-50">
@@ -84,6 +86,13 @@
                         <select name="entrepot">
                             <option value="1">A</option>
                             <option value="1">B</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <label class="mb-2" for="entrepot">Type : </label>
+                        <select name="type">
+                            <option value="1">Local</option>
+                            <option value="2">Exportation</option>
                         </select>
                     </div>
                     <input type="submit" value="Valider" class="btn-1">
