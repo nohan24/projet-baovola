@@ -3,7 +3,7 @@
     <div class="card">
         <div class="row">
             <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Historique de sortie</h4> <a href="#" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Voir l'historique des entrées ici</a>
+                <h4 class="me-4">Historique de sortie</h4> <a href="<?php echo site_url("stock/historique/entree"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Voir l'historique des entrées ici</a>
             </div>
 
         </div>
@@ -16,10 +16,11 @@
             <table class="table table-borderless" id="filter">
                 <thead>
                     <tr class="text-center">
-                        <th scope="col" class="w-25">Date</th>
-                        <th scope="col" class="w-25">Type</th>
-                        <th scope="col" class="w-25">Nom du produit</th>
-                        <th scope="col" class="w-25">Quantité</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Nom du produit</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Entrepôt</th>
                     </tr>
                 </thead>
                 <div class="line"></div>

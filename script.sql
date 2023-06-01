@@ -6,6 +6,7 @@ CREATE TABLE produit (
 CREATE TABLE entrepot(
     EntrepotId SERIAL PRIMARY KEY,
     Adresse TEXT,
+    Designation VARCHAR(2),
     Superficie DOUBLE PRECISION NOT NULL,
     Hauteur DOUBLE PRECISION NOT NULL
 );
