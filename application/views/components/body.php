@@ -18,7 +18,7 @@
                 <img src="<?php echo base_url('assets/img/nav-icon.png'); ?>" alt="vegmarket-logo" class="w-75">
                 <ul class="menu-items w-75" style="padding:0px;">
                     <li class="item">
-                        <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i> Tableau de bord</a>
+                        <a href="#"><i class="fa-solid fa-chart-simple"></i> Tableau de bord</a>
                     </li>
                     <li class="item">
                         <div class="submenu-item">
@@ -30,13 +30,19 @@
                                 <i class="fa-solid fa-chevron-left"></i>Stock
                             </div>
                             <li class="item">
-                                <a href="#">First sublink</a>
+                                <a href="#"><i class="fa-regular fa-circle"></i> Historique</a>
                             </li>
                             <li class="item">
-                                <a href="#">First sublink</a>
+                                <a href="#"><i class="fa-regular fa-circle"></i> Etat de stock</a>
                             </li>
                             <li class="item">
-                                <a href="#">First sublink</a>
+                                <a href="#"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><i class="fa-regular fa-circle"></i> Entrepôt</a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><i class="fa-regular fa-circle"></i> Produit</a>
                             </li>
                         </ul>
                     </li>
@@ -47,11 +53,19 @@
                         </div>
                         <ul class="menu-items submenu">
                             <div class="menu-title">
-                                <i class="fa-solid fa-chevron-left"></i>
-                                Matériel
+                                <i class="fa-solid fa-chevron-left"></i>Matériel
                             </div>
                             <li class="item">
-                                <a href="#">Second sublink</a>
+                                <a href="#"><i class="fa-regular fa-circle"></i> Achat matériel</a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><i class="fa-regular fa-circle"></i> Location matériel</a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><i class="fa-regular fa-circle"></i> Fournisseur</a>
+                            </li>
+                            <li class="item">
+                                <a href="#"><i class="fa-regular fa-circle"></i> Inventaire</a>
                             </li>
                         </ul>
                     </li>
@@ -63,7 +77,7 @@
                         <ul class="menu-items submenu">
                             <div class="menu-title">
                                 <i class="fa-solid fa-chevron-left"></i>
-                                Your submenu title
+                                Employé
                             </div>
                             <li class="item">
                                 <a href="#">Second sublink</a>
@@ -72,7 +86,7 @@
                     </li>
                     <li class="item">
                         <div class="submenu-item">
-                            <span><i class="fa-solid fa-wrench"></i> Finance</span>
+                            <span><i class="fa-solid fa-chart-pie"></i> Finance</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </div>
                         <ul class="menu-items submenu">
@@ -92,8 +106,9 @@
             </div>
         </nav>
 
-        <main class="main p-3">
+        <main class="main py-3 px-4">
            <h1>Welcome !</h1>
+           <!-- Content -->
         </main>
 
         <script>

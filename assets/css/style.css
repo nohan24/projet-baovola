@@ -10,7 +10,7 @@
     --text: #191e16;
     --text-font: Arial, Helvetica, sans-serif;
     --title-font: Coolvetica;
-    --link: #759675;
+    --link: #647d64;
 }
 
 * {
@@ -69,7 +69,7 @@ i {
 
 .menu-items {
     list-style: none;
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
     background-color: white;
 }
 
@@ -81,7 +81,7 @@ i {
     color: #fff;
     font-size: 14px;
     padding: 10px 14px;
-    background-color: #2640265e;
+    background-color: #2a4b2ab9;
 }
 
 .menu-title i {
@@ -103,6 +103,16 @@ i {
 .item,
 .submenu-item {
     margin-bottom: 10px;
+}
+
+.submenu .item a i {
+    font-size: 5px;
+    margin-right: 10px;
+}
+
+.submenu .item a {
+    display: flex;
+    align-items: center;
 }
 
 .item i {
@@ -130,12 +140,12 @@ i {
 .submenu .menu-title:hover {
     background-color: var(--primary);
     color: white;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .logout a,
 .logout a:hover {
-    margin-top: 40px;
+    margin-top: 30px;
     background-color: rgba(181, 24, 24, 0.842);
     color: white;
 }
@@ -186,7 +196,7 @@ i {
 .main {
     left: 22%;
     width: calc(100% - 22%);
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
     z-index: 1000;
 }
 
