@@ -10,12 +10,14 @@
     --text: #191e16;
     --text-font: Arial, Helvetica, sans-serif;
     --title-font: Coolvetica;
+    --link: #647d64;
 }
 
 * {
     font-family: var(--text-font);
     color: var(--text);
     background-color: var(--background);
+    box-sizing: border-box;
 }
 
 h1,
@@ -25,4 +27,186 @@ h4,
 h5,
 h6 {
     font-family: Coolvetica;
+    color: var(--primary);
+}
+
+i {
+    margin-right: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 22%;
+    background: white;
+    padding: 0px 15px;
+    z-index: 99;
+}
+
+.sidebar img {
+    background-color: white;
+    padding: 20px 0;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.menu-content ul li {
+    background-color: white;
+}
+
+.menu-content::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-items {
+    list-style: none;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.submenu-active .menu-items {
+    transform: translateX(-65%);
+}
+
+.menu-title {
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 14px;
+    background-color: #2a4b2ab9;
+}
+
+.menu-title i {
+    color: white;
+}
+
+.item a,
+.submenu-item {
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+    color: var(--link);
+    font-size: 14px;
+    display: inline-block;
+    transform: 0.3s;
+}
+
+.item,
+.submenu-item {
+    margin-bottom: 10px;
+}
+
+.submenu .item a i {
+    font-size: 5px;
+    margin-right: 10px;
+}
+
+.submenu .item a {
+    display: flex;
+    align-items: center;
+}
+
+.item i {
+    color: var(--link);
+    font-size: 12px;
+    background-color: white;
+}
+
+.submenu-item i {
+    background-color: white;
+    color: var(--link);
+}
+
+.submenu-item span {
+    color: var(--link);
+    background-color: white;
+    font-size: 14px;
+}
+
+.item a:hover,
+.item a:hover i,
+.submenu-item:hover,
+.submenu-item:hover span,
+.submenu-item:hover i,
+.submenu .menu-title:hover {
+    background-color: var(--primary);
+    color: white;
+    transition: 0.2s;
+}
+
+.logout a,
+.logout a:hover {
+    margin-top: 30px;
+    background-color: rgba(181, 24, 24, 0.842);
+    color: white;
+}
+
+.logout a i,
+.logout a:hover i {
+    background-color: transparent;
+    color: white;
+    margin-right: 5px;
+}
+
+.submenu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.submenu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: calc(-100% - 2.2%);
+    height: calc(100% + 100vh);
+    background: white;
+    display: none;
+}
+
+.show-submenu~.submenu {
+    display: block;
+}
+
+.submenu .menu-title {
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.submenu .menu-title i {
+    margin-right: 10px;
+    background-color: #92a79200;
+    color: white;
+}
+
+.main {
+    left: 22%;
+    width: calc(100% - 22%);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.main {
+    position: relative;
+    min-height: 100vh;
+    z-index: 100;
+}
+
+.submenu .item {
+    margin-top: 10px;
 }
