@@ -1,13 +1,14 @@
+<?php var_dump($produits); ?>
 <div class="p-1">
     <h2 class="mb-3">Produit</h2>
     <div class="card">
         <div class="row mb-4">
             <h4 class="mb-3">Ajout d'un nouveau produit</h4>
-            <form action="#" method="post" class="w-50">
+            <form action="<?php echo site_url('stock/produit'); ?>" method="post" class="w-50">
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="quantite">Produit : </label>
                     <div class="d-flex align-items-end gap-1">
-                        <input type="text" name="produit" placeholder="Nom du produit">
+                        <input type="text" name="produit" placeholder="Nom du produit" required>
                     </div>
                 </div>
                 <input type="submit" value="Ajouter" class="btn-1">

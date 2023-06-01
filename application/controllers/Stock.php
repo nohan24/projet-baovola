@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 	class Stock extends CI_Controller
 	{
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('Stock_model');
+        }
+
         public function historique($mv = "sortie")
         {
             if($mv == "sortie"){
@@ -37,8 +43,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function produit()
         {
+            if($this->input->post()){
+                if(isset($_POST['produit'])){
+                    
+                }
+            }
             $data['title'] = "Produit.";
             $data['content'] = "stock/produit";
+            $data['produits'] = $this->Stock_model->getProduit();
             $this->load->view('components/body',$data);
         }
     }
