@@ -35,7 +35,7 @@
                                 <a href="#"><i class="fa-regular fa-circle"></i> Etat de stock</a>
                             </li>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
+                                <a href="<?php echo site_url('stock/mouvement'); ?>"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
                             </li>
                             <li class="item">
                                 <a href="#"><i class="fa-regular fa-circle"></i> Entrepôt</a>
@@ -98,7 +98,6 @@
                             </li>
                         </ul>
                     </li>
-                 
                 </ul>
             </div>
         </nav>

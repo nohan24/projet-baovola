@@ -6,7 +6,7 @@ CREATE TABLE produit (
 CREATE TABLE entrepot(
     EntrepotId SERIAL PRIMARY KEY,
     Adresse TEXT,
-    Designation VARCHAR(2),
+    Designation VARCHAR(2) UNIQUE,
     Superficie DOUBLE PRECISION NOT NULL,
     Hauteur DOUBLE PRECISION NOT NULL
 );
@@ -44,7 +44,7 @@ CREATE VIEW v_historique_entre as
     SELECT Date_sortie,es.Nom_produit as Nom_produit,Quantite,e.Adresse as Adresse FROM entre_stock es JOIN produit p ON es.ProduitId = p.ProduitId JOIN entrepot e ON es.EntrepotId = e.EntreId;
 
 CREATE VIEW v_historique_sortie as 
-    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Export' END AS Type_sortie, es.Nom_produit as Nom_produitn, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntreId;
+    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, es.Nom_produit as Nom_produitn, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntreId;
 
 CREATE VIEW v_etat_stock as 
     SELECT * FROM detail_entrepot GROUP BY EntrepotId;
