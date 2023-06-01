@@ -30,7 +30,7 @@
                                 <i class="fa-solid fa-chevron-left"></i>Stock
                             </div>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Historique</a>
+                                <a href="<?php echo site_url('stock/historique/sortie'); ?>"><i class="fa-regular fa-circle"></i> Historique</a>
                             </li>
                             <li class="item">
                                 <a href="#"><i class="fa-regular fa-circle"></i> Etat de stock</a>

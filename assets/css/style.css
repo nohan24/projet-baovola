@@ -28,6 +28,7 @@ h5,
 h6 {
     font-family: Coolvetica;
     color: var(--primary);
+    background-color: transparent;
 }
 
 i {
@@ -209,4 +210,26 @@ i {
 
 .submenu .item {
     margin-top: 10px;
+}
+
+input {
+    border: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: none;
+}
+
+table,
+td,
+th,
+tr {
+    background-color: transparent;
+}
+
+.line {
+    width: 100%;
+    border-top: thin solid rgba(201, 201, 201, 0.096);
+    height: 1px;
+    margin-bottom: 5px;
 }
