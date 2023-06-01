@@ -16,8 +16,17 @@
 * {
     font-family: var(--text-font);
     color: var(--text);
-    background-color: var(--background);
     box-sizing: border-box;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background);
+    z-index: 1000;
 }
 
 h1,
@@ -200,6 +209,7 @@ i {
     width: calc(100% - 22%);
     transition: all 0.2s ease;
     z-index: 1000;
+    background-color: var(--background);
 }
 
 .main {
@@ -218,6 +228,7 @@ input {
     padding: 10px 15px;
     border-radius: 8px;
     outline: none;
+    background-color: var(--background);
 }
 
 table,
@@ -227,9 +238,42 @@ tr {
     background-color: transparent;
 }
 
-.line {
+tr {
+    border-bottom: thin solid #F1F1F1;
+}
+
+.local {
     width: 100%;
-    border-top: thin solid rgba(201, 201, 201, 0.096);
-    height: 1px;
-    margin-bottom: 5px;
+    padding: 4px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    background-color: var(--secondary);
+}
+
+.exportation {
+    width: 100%;
+    padding: 4px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    background-color: var(--primary);
+}
+
+.link-redirect {
+    color: white;
+    background-color: var(--link);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.link-redirect i {
+    color: white;
+}
+
+.link-redirect:hover {
+    color: white;
 }

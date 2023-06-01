@@ -338,8 +338,7 @@ svg {
 
 table {
     caption-side: bottom;
-    border-collapse: collapse;
-    background-color: transparent;
+    border-collapse: collapse
 }
 
 caption {
@@ -362,9 +361,6 @@ thead,
 tr {
     border-color: inherit;
     border-style: solid;
-    border-width: 0;
-    background-color: transparent;
-    font-size: 15px;
 }
 
 label {
@@ -1830,16 +1826,6 @@ progress {
     background-color: var(--bs-table-bg);
     border-bottom-width: 1px;
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-    background-color: transparent;
-}
-
-.table>tbody>tr>* {
-    background-color: transparent;
-}
-
-tr,
-th,
-td {
     background-color: transparent;
 }
 
