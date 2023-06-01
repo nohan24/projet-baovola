@@ -9,7 +9,7 @@
     }
     
     td {
-        cursor: pointer;
+   
         border-radius: 50px;
         width: 50px;
         height: 50px;
@@ -31,8 +31,9 @@
         width:50px;
     }
     
-    td:hover {
+    .not:hover {
         background-color: rgb(237, 237, 237);
+        cursor: pointer;
     }
     
     #calender-header {
@@ -90,12 +91,12 @@
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
-                                    <th>S</th>
+                                    <th>D</th>
+                                    <th>L</th>
                                     <th>M</th>
-                                    <th>T</th>
-                                    <th>W</th>
-                                    <th>T</th>
-                                    <th>F</th>
+                                    <th>M</th>
+                                    <th>J</th>
+                                    <th>V</th>
                                     <th>S</th>
                                 </tr>
                             </thead>
@@ -160,11 +161,13 @@
                 if (date > monthDays) break;
                 else if (i === 0 && j < dayOne) {
                     let columnText = document.createTextNode("");
+                    column.classList.add("none")
                     column.appendChild(columnText);
                     row.appendChild(column);
                 } else {
                     let columnText = document.createTextNode(date);
                     column.appendChild(columnText);
+                    column.classList.add("not")
 
                     if (date === DATE.getDate() && thisMonth === DATE.getMonth() && year === DATE.getFullYear()) {
                         column.classList.add("today")
