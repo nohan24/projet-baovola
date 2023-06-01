@@ -11,8 +11,9 @@
     td {
    
         border-radius: 50px;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
+        margin:0 5px;
         display:flex;
         align-items:center;
         justify-content:center;
@@ -25,6 +26,7 @@
     tr{
         display:flex;
         align-items:center;
+        border:none;
     }
 
     th{
@@ -51,6 +53,8 @@
     .today{
         background-color:grey;
     }
+
+
 </style>
 
 <div class="p-1">
@@ -70,7 +74,10 @@
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="quantite">Quantité : </label>
-                        <input type="text" name="quantite" placeholder="Quantité mouvementée">
+                        <div class="d-flex align-items-end gap-1">
+                            <input type="text" name="quantite" placeholder="Quantité mouvementée">
+                            <b style="font-size:14px; background:transparent;">x1000 Kg</b>
+                        </div>
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="entrepot">Entrepot : </label>
@@ -79,6 +86,7 @@
                             <option value="1">B</option>
                         </select>
                     </div>
+                    <input type="submit" value="Valider" class="btn-1">
                 </div>
                 <div class="w-50 d-flex justify-content-center">
                     <div>
@@ -103,7 +111,7 @@
                             <tbody id="calendar">
 
                             </tbody>
-                        </table>
+                        </table>    
                     </div>
                 </div>
             </form>
@@ -146,7 +154,7 @@
         da = "0"+da
     }
     picked.innerHTML = `${year}/${ss}/${da}`;
-
+    document.getElementById("date-mvt").value = `${year}/${ss}/${da}`;
     const createCalendar = () => {
         month.innerHTML = `${MONTHS[thisMonth]}, ${year}`;
 
@@ -186,7 +194,8 @@
                         }
 
                         picked.innerHTML = `${year}/${mm}/${dd}`;
-                        console.log(`${year}/${mm}/${dd}`)
+                        document.getElementById("date-mvt").value = `${year}/${mm}/${dd}`
+                        
                     };
 
                     row.appendChild(column);
