@@ -1,4 +1,3 @@
-<?php var_dump($historique); ?>
 <div class="p-1">
     <h2 class="mb-3">Stock</h2>
     <div class="card">
@@ -27,20 +26,18 @@
                 </thead>
                 <div class="line"></div>
                 <tbody>
-                    <tr class="text-center">
-                        <td><b style="background:transparent;">2023/05/01</b></td>
-                        <td>Tomate</td>
-                        <td><b>9</b> <span style="font-size:10px; background:transparent;">x1000 Kg</span></td>
-                        <td><b>B</b></td>
-                        <td><span class="local">Local</span></td>
-                    </tr>
-                    <tr class="text-center">
-                        <td><b style="background:transparent;">2023/05/01</b></td>
-                        <td>Tomate</td>
-                        <td><b>9</b> <span style="font-size:10px; background:transparent;">x1000 Kg</span></td>
-                        <td><b>A</b></td>
-                        <td><span class="exportation">Exportation</span></td>
-                    </tr>
+                    <?php 
+                        foreach ($historique as $h) { ?>
+                            <tr class="text-center">
+                                <td><b style="background:transparent;"><?php echo $h['date_sortie']; ?></b></td>
+                                <td><?php echo $h['nom_produit']; ?></td>
+                                <td><b><?php echo $h['quantite']; ?></b> <span style="font-size:10px; background:transparent;">x1000 Kg</span></td>
+                                <td><b><?php echo $h['adresse']; ?></b></td>
+                                <td><span class="<?php echo strtolower($h['type_sortie']); ?>"><?php echo $h['type_sortie']; ?></span></td>
+                            </tr>
+                        <?php }
+                    ?>
+                    
                 </tbody>
             </table>
         </div>
