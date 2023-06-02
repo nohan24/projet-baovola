@@ -5,7 +5,6 @@
             <div class="col-10 mb-2 d-flex align-items-center">
                 <h4 class="me-4">Historique d'entrée</h4> <a href="<?php echo site_url("stock/historique/sortie"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Voir l'historique des sorties ici</a>
             </div>
-
         </div>
         <div style="margin-bottom: 20px; background:transparent;">
             <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
@@ -40,7 +39,7 @@
               
             </table>
             <?php if(count($historique) == 0){ ?>
-                    <p class="text-center">Vide</p>
+                    <b class="text-center">Vide</b>
                 <?php } ?>
         </div>
 </div>

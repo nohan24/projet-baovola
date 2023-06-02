@@ -78,4 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->Stock_model->deleteProd($id); 
             redirect(site_url('stock/produit'));
         }
+
+        public function repartition()
+        {
+            $prodName = $_POST['produit'];
+        }
     }

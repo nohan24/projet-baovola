@@ -40,6 +40,9 @@
                     
                 </tbody>
             </table>
+            <?php if(count($historique) == 0){ ?>
+                    <b class="text-center">Vide</b>
+            <?php } ?>
         </div>
 </div>
 <script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>

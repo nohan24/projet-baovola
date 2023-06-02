@@ -1,7 +1,7 @@
 <div class="p-1">
     <h2 class="mb-3">Stock</h2>
     <div class="card">
-        <h4>Répartition de stock</h4>
+        <h4>Mise à jour de la répartition de stock</h4>
     <div>
 </div>
 
