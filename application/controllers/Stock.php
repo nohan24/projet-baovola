@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['content'] = "stock/historique_sortie";
             }else{
                 $data["historique"] = $this->Stock_model->getMvtEntree();
-                $data['title'] = "Historique d'entrée.  ";
+                $data['title'] = "Historique d'entrée.";
                 $data['content'] = "stock/historique_entree";
             }   
             $this->load->view('components/body',$data);
