@@ -31,4 +31,16 @@
                 $this->db->query(sprintf($sql,$p['produitid'],$e['p'.$p['produitid']]));
             }
         }
+
+        public function getMvtSortie(){
+            $this->db->select('*');
+            $this->db->from("v_historique_sortie");
+            return $this->db->get()->result_array();
+        }
+
+        public function getMvtEntree(){
+            $this->db->select('*');
+            $this->db->from("v_historique_entre");
+            return $this->db->get()->result_array();
+        }
     }

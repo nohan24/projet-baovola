@@ -11,9 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function historique($mv = "sortie")
         {
             if($mv == "sortie"){
+                $data["historique"] = $this->Stock_model->getMvtSortie();
                 $data['title'] = "Historique de sortie.";
                 $data['content'] = "stock/historique_sortie";
             }else{
+                $data["historique"] = $this->Stock_model->getMvtEntree();
                 $data['title'] = "Historique d'entrée.";
                 $data['content'] = "stock/historique_entree";
             }   
