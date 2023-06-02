@@ -3,12 +3,19 @@ CREATE TABLE produit (
     Nom_produit VARCHAR(60) NOT NULL
 );
 
+CREATE SEQUENCE entrepot_seq;
+
 CREATE TABLE entrepot(
-    EntrepotId SERIAL PRIMARY KEY,
-    Adresse TEXT,
-    Designation VARCHAR(2) UNIQUE,
+    EntrepotId INT PRIMARY KEY DEFAULT(nextval('entrepot_seq')),
+    Adresse VARCHAR(80),
     Superficie DOUBLE PRECISION NOT NULL,
     Hauteur DOUBLE PRECISION NOT NULL
+);
+
+CREATE TABLE entrepot_non_dispo(
+    endId SERIAL PRIMARY KEY,
+    EntrepotId INT,
+    FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
 
 CREATE TABLE detail_entrepot(
@@ -37,6 +44,13 @@ CREATE TABLE sortie_stock(
     Date_sortie DATE NOT NULL,
     Quantite DOUBLE PRECISION NOT NULL,
     Type_sortie SMALLINT,
+    FOREIGN KEY(ProduitId) REFERENCES produit(ProduitId),
+    FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
+);
+
+CREATE TABLE produit_non_dispo(
+    pndId SERIAL PRIMARY KEY, 
+    ProduitId INT,
     FOREIGN KEY(ProduitId) REFERENCES produit(ProduitId)
 );
 
@@ -49,3 +63,9 @@ CREATE VIEW v_historique_sortie as
 
 CREATE VIEW v_etat_stock as 
     SELECT * FROM detail_entrepot GROUP BY EntrepotId;
+
+CREATE VIEW v_p_dispo as 
+    SELECT * FROM produit WHERE ProduitId NOT IN (SELECT ProduitId FROM produit_non_dispo);
+
+CREATE VIEW v_e_dispo as 
+    SELECT * FROM entrepot WHERE EntrepotId NOT IN (SELECT EntrepotId FROM entrepot_non_dispo);

@@ -38,19 +38,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function entrepot()
         {
-
+            $data['title'] = "Entrepôt.";
+            $data['content'] = "stock/entrepot";
+            $data['produits'] = $this->Stock_model->getProduit();
+            $data['entrepots'] = $this->Stock_model->getEntrepot();
+            $this->load->view('components/body',$data);
         }
 
         public function produit()
         {
-            if($this->input->post()){
-                if(isset($_POST['produit'])){
-                    
-                }
-            }
             $data['title'] = "Produit.";
             $data['content'] = "stock/produit";
             $data['produits'] = $this->Stock_model->getProduit();
             $this->load->view('components/body',$data);
+        }
+
+        public function insertionProduit()
+        {
+            $this->Stock_model->insertProduit($_POST['produit']);
+            redirect(site_url('stock/produit'));
+        }
+
+        public function insertionEntrepot()
+        {
+            $this->Stock_model->insertEntrepot($_POST);
+        }
+
+        public function deleteProduit($id)
+        {
+            $this->Stock_model->deleteProd($id); 
+            redirect(site_url('stock/produit'));
         }
     }

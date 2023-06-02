@@ -298,5 +298,57 @@ label {
 .btn-2 {
     background-color: rgb(200, 31, 31);
     color: white;
-    padding: 5px 20px;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.btn-2:hover {
+    color: white;
+}
+
+.btn-2 i {
+    margin: 0;
+}
+
+.btn-3 {
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-3:hover {
+    color: white;
+}
+
+.btn-3 i {
+    margin: 0;
+}
+
+.btn-4 {
+    background-color: var(--secondary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-4:hover {
+    color: white;
+}
+
+.btn-4 i {
+    margin: 0;
+}
+
+.link {
+    width: 30px;
+    height: 30px;
 }

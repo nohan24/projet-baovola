@@ -1,10 +1,9 @@
-<?php var_dump($produits); ?>
 <div class="p-1">
     <h2 class="mb-3">Produit</h2>
     <div class="card">
         <div class="row mb-4">
             <h4 class="mb-3">Ajout d'un nouveau produit</h4>
-            <form action="<?php echo site_url('stock/produit'); ?>" method="post" class="w-50">
+            <form action="<?php echo site_url('stock/insertionProduit'); ?>" method="post" class="w-50">
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="quantite">Produit : </label>
                     <div class="d-flex align-items-end gap-1">
@@ -25,10 +24,14 @@
                 </thead>
                 <div class="line"></div>
                 <tbody>
-                    <tr class="text-center">
-                        <td><b>Tomate</b></td>
-                        <td><input type="submit" class="btn-2" value="Supprimer"></td>
-                    </tr>
+                    <?php 
+                        foreach ($produits as $produit) { ?>
+                            <tr class="text-center">
+                                <td><b><?php echo $produit['nom_produit']; ?></b></td>
+                                <td><a href="<?php echo site_url("stock/deleteProduit/" . $produit['produitid']); ?>" class="btn-2">Supprimer</a></td>
+                            </tr>
+                        <?php }
+                    ?>
                 </tbody>
             </table>
         </div>
