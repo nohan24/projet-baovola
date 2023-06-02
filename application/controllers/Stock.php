@@ -36,12 +36,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         }
 
-        public function entrepot()
+        public function entrepot($where="",$id=-1)
         {
             $data['title'] = "Entrepôt.";
-            $data['content'] = "stock/entrepot";
-            $data['produits'] = $this->Stock_model->getProduit();
-            $data['entrepots'] = $this->Stock_model->getEntrepot();
+            if($id == -1){
+                $data['content'] = "stock/entrepot";
+                $data['produits'] = $this->Stock_model->getProduit();
+                $data['entrepots'] = $this->Stock_model->getEntrepot();
+            }else{
+                $data['content'] = "stock/info_entrepot";
+            }
             $this->load->view('components/body',$data);
         }
 

@@ -55,10 +55,10 @@
                 <?php 
                     foreach ($entrepots as $entrepot) { ?>
                         <tr class="text-center">
-                            <td><?php echo $produit['adresse']; ?></td>
-                            <td><?php echo $produit['superficie']; ?> <b>m²</b></td>
-                            <td><?php echo $produit['hauteur']; ?> <b>m</b></td>
-                            <td class="d-flex justify-content-center gap-2"><a href="#" class="btn-4 link"><i class="fa-solid fa-info" style="color:white;"></i></a> <a href="#" class="btn-3 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash d-flex" style="color:white;"></i></a></td>
+                            <td><?php echo $entrepot['adresse']; ?></td>
+                            <td><?php echo $entrepot['superficie']; ?> <b>m²</b></td>
+                            <td><?php echo $entrepot['hauteur']; ?> <b>m</b></td>
+                            <td class="d-flex justify-content-center gap-2"><a href="<?php echo site_url('stock/entrepot/info/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-info" style="color:white;"></i></a> <a href="#" class="btn-3 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash d-flex" style="color:white;"></i></a></td>
                         </tr>
                     <?php }
                 ?>
