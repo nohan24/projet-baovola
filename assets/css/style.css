@@ -300,6 +300,10 @@ label {
     color: white;
     padding: 6px 10px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .btn-2:hover {

@@ -7,7 +7,7 @@ CREATE SEQUENCE entrepot_seq;
 
 CREATE TABLE entrepot(
     EntrepotId INT PRIMARY KEY DEFAULT(nextval('entrepot_seq')),
-    Adresse VARCHAR(80),
+    Adresse VARCHAR(80) NOT NULL,
     Superficie DOUBLE PRECISION NOT NULL,
     Hauteur DOUBLE PRECISION NOT NULL
 );

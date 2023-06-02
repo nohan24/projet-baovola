@@ -5,22 +5,22 @@
         <form action="<?php echo site_url("stock/insertionEntrepot"); ?>" method="post">
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="adresse">Adresse : </label>
-                    <div class="d-flex align-items-end gap-1">
-                        <input type="text" name="adresse" placeholder="Adresse de l'entrepôt" required>
+                    <div class="d-flex align-items-end gap-2">
+                        <input type="text" name="adresse" placeholder="Adresse de l'entrepôt" maxlength="80" required>
                         <b style="font-size:14px; background:transparent;">80 caractères maximum</b>
                     </div>
                 </div>
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="superficie">Superficie : </label>
-                    <div class="d-flex align-items-end gap-1">
-                        <input type="number" name="superficie" placeholder="Superficie de l'entrepôt" required>
+                    <div class="d-flex align-items-end gap-2">
+                        <input type="number" min="1" name="superficie" placeholder="Superficie de l'entrepôt" required step="0.01">
                         <b style="font-size:14px; background:transparent;">mètre ²</b>
                     </div>
                 </div>
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="hauteur">Hauteur : </label>
-                    <div class="d-flex align-items-end gap-1">
-                        <input type="number" name="hauteur" placeholder="Hauteur de l'entrepôt" required>
+                    <div class="d-flex align-items-end gap-2">
+                        <input type="number" min="1" name="hauteur" placeholder="Hauteur de l'entrepôt" required step="0.01">
                         <b style="font-size:14px; background:transparent;">mètre</b>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                     foreach ($produits as $produit) { ?>
                         <div class="mb-3 d-flex align-items-center gap-4">
                             <label class="mb-2" for="<?php echo 'p'.$produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?> : </label>
-                            <div class="d-flex align-items-end gap-1">
-                                <input type="number" name="<?php echo 'p'.$produit['produitid']; ?>" value="0.00" required>
+                            <div class="d-flex align-items-end gap-2">
+                                <input type="number" name="<?php echo 'p'.$produit['produitid']; ?>" value="0.00" step="0.01" required>
                                 <b style="font-size:14px; background:transparent;">x1000 Kg</b>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <td><?php echo $entrepot['adresse']; ?></td>
                             <td><?php echo $entrepot['superficie']; ?> <b>m²</b></td>
                             <td><?php echo $entrepot['hauteur']; ?> <b>m</b></td>
-                            <td class="d-flex justify-content-center gap-2"><a href="<?php echo site_url('stock/entrepot/info/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-info" style="color:white;"></i></a> <a href="#" class="btn-3 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash d-flex" style="color:white;"></i></a></td>
+                            <td class="d-flex justify-content-center gap-2"><a href="<?php echo site_url('stock/entrepot/info/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-info" style="color:white;"></i></a> <a href="#" class="btn-3 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                         </tr>
                     <?php }
                 ?>

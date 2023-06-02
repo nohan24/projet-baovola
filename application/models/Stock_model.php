@@ -25,5 +25,10 @@
         public function insertEntrepot($e){
             $sql = "insert into entrepot values(default, %s,%s,%s)";
             $this->db->query(sprintf($sql,$this->db->escape($e['adresse']),$e['superficie'],$e['hauteur']));
+            $prod = $this->getProduit();
+            foreach ($prod as $p) {
+                $sql = "insert into detail_entrepot values(default,currval('entrepot_seq'),%s,%s)";
+                $this->db->query(sprintf($sql,$p['produitid'],$e['p'.$p['produitid']]));
+            }
         }
     }

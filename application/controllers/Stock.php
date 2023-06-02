@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function mouvement($mvt = "sortie")
         {
+            $data['entrepots'] = $this->Stock_model->getEntrepot();
+            $data['produits'] = $this->Stock_model->getProduit();
             $data['title'] = "Mouvement de stock."; 
             if($mvt == "sortie"){
                 $data['content'] = "stock/mouvement_sortie";
@@ -66,6 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function insertionEntrepot()
         {
             $this->Stock_model->insertEntrepot($_POST);
+            redirect(site_url('stock/entrepot'));
         }
 
         public function deleteProduit($id)

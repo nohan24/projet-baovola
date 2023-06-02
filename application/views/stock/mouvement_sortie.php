@@ -65,8 +65,11 @@
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="produit">Produit : </label>
                         <select name="produit">
-                            <option value="1">Tomate</option>
-                            <option value="1">Aubergine</option>
+                            <?php  
+                                foreach ($produits as $produit) { ?>
+                                    <option value="<?php echo $produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?></option>
+                                <?php }
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3 d-flex flex-column">
@@ -79,8 +82,11 @@
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="entrepot">Entrepot : </label>
                         <select name="entrepot">
-                            <option value="1">A</option>
-                            <option value="1">B</option>
+                            <?php  
+                                foreach ($entrepots as $entrepot) { ?>
+                                    <option value="<?php echo $entrepot['entrepotid']; ?>"><?php echo $entrepot['adresse']; ?></option>
+                                <?php }
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3 d-flex flex-column">
