@@ -1,3 +1,4 @@
+<?php var_dump($historique); ?>
 <div class="p-1">
     <h2 class="mb-3">Stock</h2>
     <div class="card">

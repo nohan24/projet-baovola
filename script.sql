@@ -48,6 +48,8 @@ CREATE TABLE sortie_stock(
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
 
+INSERT INTO sortie_stock VALUES(1,7,1,'2023/06/02',2,1);
+
 CREATE TABLE produit_non_dispo(
     pndId SERIAL PRIMARY KEY, 
     ProduitId INT,
@@ -58,8 +60,8 @@ CREATE TABLE produit_non_dispo(
 CREATE VIEW v_historique_entre as 
     SELECT Date_entre,p.Nom_produit as Nom_produit,Quantite,e.Adresse as Adresse FROM entre_stock es JOIN produit p ON es.ProduitId = p.ProduitId JOIN entrepot e ON es.EntrepotId = e.EntrepotId;
 
-CREATE VIEW v_historique_sortie as 
-    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, p.Nom_produit as Nom_produitn, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntrepotId;
+CREATE OR REPLACE VIEW v_historique_sortie as 
+    SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, p.Nom_produit as Nom_produit, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntrepotId;
 
 CREATE VIEW v_etat_stock as 
     SELECT * FROM detail_entrepot GROUP BY EntrepotId;
