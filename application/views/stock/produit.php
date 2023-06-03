@@ -3,7 +3,7 @@
     <div class="card">
         <div class="row mb-4">
             <h4 class="mb-3">Ajout d'un nouveau produit</h4>
-            <form action="<?php echo site_url('stock/insertionProduit'); ?>" method="post" class="w-50">
+            <form action="<?php echo site_url('stock/repartition'); ?>" method="post" class="w-50">
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="quantite">Produit : </label>
                     <div class="d-flex align-items-end gap-1">

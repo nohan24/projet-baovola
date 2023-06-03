@@ -22,7 +22,7 @@ CREATE TABLE detail_entrepot(
     detail_entrepot_Id SERIAL PRIMARY KEY,
     EntrepotId INT,
     ProduitId INT,
-    QuantiteStock DOUBLE PRECISION NOT NULL,
+    QuantiteStock DOUBLE PRECISION NOT NULL DEFAULT(0),
     FOREIGN KEY(ProduitId) REFERENCES produit(ProduitId),
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
