@@ -18,6 +18,13 @@
                                 </div>
                             <?php }
                         ?>
+                        <div class="mb-3 d-flex align-items-center gap-4">
+                            <label class="mb-2"><?php echo $new_produit; ?> : </label>
+                            <div class="d-flex align-items-end gap-2">
+                                <input type="number" name="<?php echo 'nouveau'; ?>" value="0.00" step="0.01" required>
+                                <b style="font-size:14px; background:transparent;">x1000 Kg</b>
+                            </div>
+                        </div>
                     </div>
                 <?php }
             ?>

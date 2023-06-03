@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $data['title'] = "Produit.";
             $data['content'] = "stock/definition_stock";
+            $data['new_produit'] = $_POST['produit'];
             $data['produits'] = $this->Stock_model->getProduit();
             $data['entrepots'] = $this->Stock_model->getEntrepot();
             $this->load->view('components/body',$data);
