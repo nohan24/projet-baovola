@@ -288,6 +288,7 @@ option {
 label {
     color: #92A792;
     font-size: 14px;
+    width: 100px;
 }
 
 .btn-1 {

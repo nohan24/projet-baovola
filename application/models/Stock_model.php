@@ -1,9 +1,5 @@
 <?php 
     class Stock_model extends CI_Model {
-        public function insertProduit($nomProduit){
-            $sql = "insert into produit values(default,%s)";
-            $this->db->query(sprintf($sql,$this->db->escape($nomProduit)));
-        }
 
         public function getProduit(){
             $this->db->select('*');
@@ -42,5 +38,17 @@
             $this->db->select('*');
             $this->db->from("v_historique_entre");
             return $this->db->get()->result_array();
+        }
+
+        public function getDetailVal($entrepot,$produit){
+            $this->db->select('quantitestock');
+            $this->db->from('detail_entrepot');
+            $this->db->where('entrepotid',$entrepot);
+            $this->db->where('produitid',$produit);
+            return $this->db->get()->row_array();
+        }
+
+        public function insertProd($data){
+            
         }
     }
