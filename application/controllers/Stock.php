@@ -80,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function insertionProduit()
         {
             $this->Stock_model->insertProd($_POST);
+            redirect(site_url('stock/produit'));
         }
 
         public function deleteProduit($id)

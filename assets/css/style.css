@@ -358,3 +358,8 @@ label {
     width: 30px;
     height: 30px;
 }
+
+.success {
+    color: white;
+    background-color: var(--primary);
+}

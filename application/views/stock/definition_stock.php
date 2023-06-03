@@ -2,7 +2,8 @@
     <h2 class="mb-3">Stock</h2>
     <div class="card">
         <h4 class="mb-3">Mise à jour de la répartition de stock</h4>
-        <form action="<?php echo site_url("stock/insertionProduit"); ?>" method="get">
+        <form action="<?php echo site_url("stock/insertionProduit"); ?>" method="post">
+            <input type="hidden" name="new_product" value="<?php echo $new_produit; ?>">
             <?php 
                 foreach ($entrepots as $e) { ?>
                     <div>

@@ -24,18 +24,23 @@
                         <b style="font-size:14px; background:transparent;">mètre</b>
                     </div>
                 </div>
-                <h5 class="py-2">Quantité stocké pour chaque produit</h5>
-                <?php  
-                    foreach ($produits as $produit) { ?>
-                        <div class="mb-3 d-flex align-items-center gap-4">
-                            <label class="mb-2" for="<?php echo 'p'.$produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?> : </label>
-                            <div class="d-flex align-items-end gap-2">
-                                <input type="number" name="<?php echo 'p'.$produit['produitid']; ?>" value="0.00" step="0.01" required>
-                                <b style="font-size:14px; background:transparent;">x1000 Kg</b>
+                <?php 
+                    if(count($produits) != 0){ ?>
+                    <h5 class="py-2">Quantité stocké pour chaque produit</h5>
+                    <?php  
+                        foreach ($produits as $produit) { ?>
+                            <div class="mb-3 d-flex align-items-center gap-4">
+                                <label class="mb-2" for="<?php echo 'p'.$produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?> : </label>
+                                <div class="d-flex align-items-end gap-2">
+                                    <input type="number" name="<?php echo 'p'.$produit['produitid']; ?>" value="0.00" step="0.01" required>
+                                    <b style="font-size:14px; background:transparent;">x1000 Kg</b>
+                                </div>
                             </div>
-                        </div>
+                        <?php }
+                    ?>
                     <?php }
                 ?>
+                
                 <input type="submit" class="btn-1" value="Valider l'ajout">
             </div>
         </form>

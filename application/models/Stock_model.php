@@ -48,7 +48,22 @@
             return $this->db->get()->row_array();
         }
 
-        public function insertProd($data){
-            
+        public function insertProd($data){         
+            $prod = $this->getProduit();
+            $entrepot = $this->getEntrepot();
+            $sql = "insert into produit values(default, %s)";
+            $this->db->query(sprintf($sql,$this->db->escape($data['new_product'])));
+            foreach ($entrepot as $e) {
+                foreach ($prod as $p) {
+                    $this->db->where('entrepotid',$e['entrepotid']);
+                    $this->db->where('produitid',$e['produitid']);
+                    $this->db->delete('detail_entrepot');
+                    $sql = "insert into detail_entrepot values(default,%s,currval('produit_seq'),%s)";
+                    $this->db->query(sprintf($sql,$e['entrepotid'],$data['p'.$e['entrepotid'].$p['produitid']]));
+                }
+                $sql = "insert into detail_entrepot values(default,%s,currval('produit_seq'),%s)";
+                $this->db->query(sprintf($sql,$e['entrepotid'],$data['nouveau'.$e['entrepotid']]));
+            }
+            return 1;
         }
     }
