@@ -16,8 +16,18 @@
 * {
     font-family: var(--text-font);
     color: var(--text);
-    background-color: var(--background);
     box-sizing: border-box;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background);
+    z-index: 1000;
 }
 
 h1,
@@ -28,6 +38,7 @@ h5,
 h6 {
     font-family: Coolvetica;
     color: var(--primary);
+    background-color: transparent;
 }
 
 i {
@@ -199,6 +210,7 @@ i {
     width: calc(100% - 22%);
     transition: all 0.2s ease;
     z-index: 1000;
+    background-color: var(--background);
 }
 
 .main {
@@ -209,4 +221,139 @@ i {
 
 .submenu .item {
     margin-top: 10px;
+}
+
+input,
+select {
+    border: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: none;
+    background-color: var(--background);
+}
+
+table,
+td,
+th,
+tr {
+    background-color: transparent;
+}
+
+tr {
+    border-bottom: thin solid #F1F1F1;
+}
+
+.local {
+    width: 100%;
+    padding: 4px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    background-color: var(--secondary);
+}
+
+.exportation {
+    width: 100%;
+    padding: 4px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    background-color: var(--primary);
+}
+
+.link-redirect {
+    color: white;
+    background-color: var(--link);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.link-redirect i {
+    color: white;
+}
+
+.link-redirect:hover {
+    color: white;
+}
+
+select,
+option {
+    color: #757575;
+}
+
+label {
+    color: #92A792;
+    font-size: 14px;
+}
+
+.btn-1 {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 30px;
+}
+
+.btn-2 {
+    background-color: rgb(200, 31, 31);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-2:hover {
+    color: white;
+}
+
+.btn-2 i {
+    margin: 0;
+}
+
+.btn-3 {
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-3:hover {
+    color: white;
+}
+
+.btn-3 i {
+    margin: 0;
+}
+
+.btn-4 {
+    background-color: var(--secondary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-4:hover {
+    color: white;
+}
+
+.btn-4 i {
+    margin: 0;
+}
+
+.link {
+    width: 30px;
+    height: 30px;
 }
