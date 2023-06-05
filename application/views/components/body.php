@@ -7,9 +7,8 @@
     <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/img/icon.png'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
     <title><?php echo $title; ?></title>
 </head>
     <body>
@@ -30,19 +29,19 @@
                                 <i class="fa-solid fa-chevron-left"></i>Stock
                             </div>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Historique</a>
+                                <a href="<?php echo site_url('stock/historique/sortie'); ?>"><i class="fa-regular fa-circle"></i> Historique</a>
                             </li>
                             <li class="item">
                                 <a href="#"><i class="fa-regular fa-circle"></i> Etat de stock</a>
                             </li>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
+                                <a href="<?php echo site_url('stock/mouvement'); ?>"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
                             </li>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Entrepôt</a>
+                                <a href="<?php echo site_url('stock/entrepot'); ?>"><i class="fa-regular fa-circle"></i> Entrepôt</a>
                             </li>
                             <li class="item">
-                                <a href="#"><i class="fa-regular fa-circle"></i> Produit</a>
+                                <a href="<?php echo site_url('stock/produit'); ?>"><i class="fa-regular fa-circle"></i> Produit</a>
                             </li>
                         </ul>
                     </li>
@@ -98,9 +97,6 @@
                                 <a href="#">Second sublink</a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="item logout">
-                        <a href="#" class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i>  Déconnexion</a>
                     </li>
                 </ul>
             </div>
