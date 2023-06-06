@@ -13,7 +13,7 @@
             return $this->db->get()->result_array();
         }
         public function selectFournisseur(){
-            $this->db->select('*');
+            $this->db->select('*'); 
             $this->db->from("fournisseur");
             return $this->db->get()->result_array();
         }
