@@ -50,7 +50,7 @@ CREATE TABLE sortie_stock(
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
 
--- INSERT INTO sortie_stock VALUES(1,7,1,'2023/06/02',2,1);
+-- INSERT INTO sortie_stock VALUES(1,1,3,'2023/06/02',2,1);
 
 CREATE TABLE produit_non_dispo(
     pndId SERIAL PRIMARY KEY, 
@@ -70,3 +70,9 @@ CREATE VIEW v_p_dispo as
 
 CREATE VIEW v_e_dispo as 
     SELECT * FROM entrepot WHERE EntrepotId NOT IN (SELECT EntrepotId FROM entrepot_non_dispo);
+
+CREATE VIEW v_liste_detail as 
+    SELECT * FROM entrepot CROSS JOIN produit;
+
+CREATE VIEW v_detail as 
+    SELECT v.entrepotid,v.produitid,adresse,quantitestock FROM v_liste_detail v JOIN detail_entrepot d ON (v.entrepotid = d.entrepotid AND v.produitid = d.produitid);
