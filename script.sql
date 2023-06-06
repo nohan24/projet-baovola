@@ -1,5 +1,7 @@
+CREATE SEQUENCE produit_seq;
+
 CREATE TABLE produit (
-    ProduitId SERIAL PRIMARY KEY, 
+    ProduitId INT PRIMARY KEY DEFAULT(nextval('produit_seq')), 
     Nom_produit VARCHAR(60) NOT NULL
 );
 
@@ -48,7 +50,7 @@ CREATE TABLE sortie_stock(
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
 
-INSERT INTO sortie_stock VALUES(1,7,1,'2023/06/02',2,1);
+-- INSERT INTO sortie_stock VALUES(1,1,3,'2023/06/02',2,1);
 
 CREATE TABLE produit_non_dispo(
     pndId SERIAL PRIMARY KEY, 
@@ -63,11 +65,14 @@ CREATE VIEW v_historique_entre as
 CREATE OR REPLACE VIEW v_historique_sortie as 
     SELECT Date_sortie, CASE WHEN Type_sortie = 1 THEN 'Local' ELSE 'Exportation' END AS Type_sortie, p.Nom_produit as Nom_produit, Quantite, e.Adresse as Adresse  FROM sortie_stock ss JOIN produit p ON ss.ProduitId = p.ProduitId JOIN entrepot e ON ss.EntrepotId = e.EntrepotId;
 
-CREATE VIEW v_etat_stock as 
-    SELECT * FROM detail_entrepot GROUP BY EntrepotId;
-
 CREATE VIEW v_p_dispo as 
     SELECT * FROM produit WHERE ProduitId NOT IN (SELECT ProduitId FROM produit_non_dispo);
 
 CREATE VIEW v_e_dispo as 
     SELECT * FROM entrepot WHERE EntrepotId NOT IN (SELECT EntrepotId FROM entrepot_non_dispo);
+
+CREATE VIEW v_liste_detail as 
+    SELECT * FROM entrepot CROSS JOIN produit;
+
+CREATE VIEW v_detail as 
+    SELECT v.entrepotid,v.produitid,adresse,quantitestock FROM v_liste_detail v JOIN detail_entrepot d ON (v.entrepotid = d.entrepotid AND v.produitid = d.produitid);

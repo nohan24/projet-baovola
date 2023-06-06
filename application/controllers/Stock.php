@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $data['title'] = "Produit.";
             $data['content'] = "stock/definition_stock";
+            $data['new_produit'] = $_POST['produit'];
             $data['produits'] = $this->Stock_model->getProduit();
             $data['entrepots'] = $this->Stock_model->getEntrepot();
             $this->load->view('components/body',$data);
@@ -74,6 +75,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $this->Stock_model->insertEntrepot($_POST);
             redirect(site_url('stock/entrepot'));
+        }
+
+        public function insertionProduit()
+        {
+            $this->Stock_model->insertProd($_POST);
+            redirect(site_url('stock/produit'));
         }
 
         public function deleteProduit($id)
