@@ -50,7 +50,7 @@ CREATE TABLE sortie_stock(
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
 );
 
--- INSERT INTO sortie_stock VALUES(1,1,3,'2023/06/02',2,1);
+-- INSERT INTO sortie_stock VALUES(1,1,13,'2023/06/02',2,1);
 
 CREATE TABLE produit_non_dispo(
     pndId SERIAL PRIMARY KEY, 
@@ -76,3 +76,15 @@ CREATE VIEW v_liste_detail as
 
 CREATE VIEW v_detail as 
     SELECT v.entrepotid,v.produitid,adresse,quantitestock FROM v_liste_detail v JOIN detail_entrepot d ON (v.entrepotid = d.entrepotid AND v.produitid = d.produitid);
+
+CREATE VIEW v_sortie as 
+    SELECT entrepotid,produitid,sum(quantite) from sortie_stock group by entrepotid,produitid;
+
+CREATE VIEW v_entre  as 
+    SELECT entrepotid,produitid,sum(quantite) from entre_stock group by entrepotid,produitid;
+
+CREATE VIEW v_join_detail as 
+    SELECT e.entrepotid,produitid,adresse,superficie,hauteur,quantitestock from entrepot e inner join detail_entrepot d on e.entrepotid = d.entrepotid;
+
+CREATE VIEW v_etat_stock as  
+    SELECT v.*,coalesce(coalesce(e.sum,0) - coalesce(s.sum,0),0) as instock from v_join_detail v left join v_sortie s on (v.entrepotid = s.entrepotid and v.produitid = s.produitid) left join v_entre e on (v.entrepotid = e.entrepotid and v.produitid = e.produitid);
