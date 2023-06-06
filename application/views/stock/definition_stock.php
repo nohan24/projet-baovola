@@ -13,7 +13,8 @@
                         <div class="mb-3 d-flex align-items-center gap-4">
                             <label class="mb-2" for="<?php echo 'p' . $e['entrepotid'] . $p['produitid']; ?>"><?php echo $p['nom_produit']; ?> : </label>
                             <div class="d-flex align-items-end gap-2">
-                                <input type="number" name="<?php echo 'p' . $e['entrepotid'] . $p['produitid']; ?>" value="<?php echo $this->Stock_model->getDetailVal($e['entrepotid'], $p['produitid'])['quantitestock']; ?>" step="0.01" required>
+                                <?php $detailVal = $this->Stock_model->getDetailVal($e['entrepotid'], $p['produitid']); ?>
+                                <input type="number" name="<?php echo 'p' . $e['entrepotid'] . $p['produitid']; ?>" value="<?php echo $detailVal['quantitestock']; ?>" step="0.01" required>
                                 <b style="font-size:14px; background:transparent;">x1000 Kg</b>
                             </div>
                         </div>
