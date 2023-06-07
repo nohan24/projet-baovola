@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function __construct()
         {
             parent::__construct();
-            $this->load->model('Stock_model');
+            $this->load->model('Finance_model');
         }
 
         public function mouvement()
