@@ -94,6 +94,7 @@
                                 Finance
                             </div>
                             <li class="item">
+                                <a href="#">Second sublink</a>
                                 <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Mouvement financier</a>
                             </li>
                             <li class="item">

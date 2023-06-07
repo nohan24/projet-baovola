@@ -76,7 +76,6 @@ CREATE VIEW v_liste_detail as
 
 CREATE VIEW v_detail as 
     SELECT v.entrepotid,v.produitid,adresse,quantitestock FROM v_liste_detail v JOIN detail_entrepot d ON (v.entrepotid = d.entrepotid AND v.produitid = d.produitid);
-
 -- FINANCE
 
 CREATE TABLE caisse(
