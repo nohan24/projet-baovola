@@ -94,7 +94,10 @@
                                 Finance
                             </div>
                             <li class="item">
-                                <a href="#">Second sublink</a>
+                                <a href="#">Etat Financier</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">Prévision</a>
                             </li>
                         </ul>
                     </li>
