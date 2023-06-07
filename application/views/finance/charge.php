@@ -26,7 +26,6 @@
                 <div class="line"></div>
                 <tbody>
                     <?php 
-                        $charge = array();
                         foreach ($charge as $c) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $c['date']; ?></b></td>

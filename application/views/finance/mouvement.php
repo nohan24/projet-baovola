@@ -25,7 +25,6 @@
                 <div class="line"></div>
                 <tbody>
                     <?php 
-                        $mouvement = array();
                         foreach ($mouvement as $m) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>

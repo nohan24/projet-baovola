@@ -26,7 +26,6 @@
                 <div class="line"></div>
                 <tbody>
                     <?php 
-                        $vente = array();
                         foreach ($vente as $v) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $v['date']; ?></b></td>
