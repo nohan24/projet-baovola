@@ -72,4 +72,27 @@ class Stock_model extends CI_Model
             $this->db->query(sprintf($sql, $e['entrepotid'], $data['nouveau' . $e['entrepotid']]));
         }
     }
+
+    public function getEtatStock()
+    {
+        $this->db->select('*');
+        $this->db->from('v_etat_stock');
+        $ar = $this->db->get()->result_array();
+        $dict = array();
+        foreach ($ar as $e) {
+            if (!isset($dict[$e['entrepotid']])) {
+                $dict[$e['entrepotid']] = array(
+                    'element' => array(),
+                    'adresse' => $e['adresse']
+                );
+            }
+            $d = array(
+                'produit' => $e['nom_produit'],
+                'qtt_max' => $e['quantitestock'],
+                'instock' => $e['instock']
+            );
+            array_push($dict[$e['entrepotid']]['element'], $d);
+        }
+        return $dict;
+    }
 }

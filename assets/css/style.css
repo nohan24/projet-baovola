@@ -363,3 +363,10 @@ label {
     color: white;
     background-color: var(--primary);
 }
+
+.etat-card {
+    background-color: #eb7d380a;
+    border-radius: 5px;
+    padding: 20px 30px;
+    width: calc(100% / 3);
+}
