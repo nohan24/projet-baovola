@@ -17,6 +17,9 @@
                     <tr class="text-center">
                         <th scope="col">Date</th>
                         <th scope="col">Libellé</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Unité</th>
+                        <th scope="col">Coût Unitaire</th>
                         <th scope="col">Montant</th>
                     </tr>
                 </thead>
@@ -28,6 +31,9 @@
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $c['date']; ?></b></td>
                                 <td><?php echo $c['libelle']; ?></td>
+                                <td><?php echo $c['quantite']; ?></td>
+                                <td><?php echo $c['unite']; ?></td>
+                                <td><?php echo $c['cout_unitaire']; ?></td>
                                 <td><b><?php echo $c['montant']; ?></b></td>
                             </tr>
                         <?php }
