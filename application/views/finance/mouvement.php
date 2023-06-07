@@ -30,8 +30,8 @@
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>
                                 <td><?php echo $m['entree']; ?></td>
-                                <td><?php echo $m['sorite']; ?></td>
-                                <td><b><?php echo $m['libelle']; ?></b></td>
+                                <td><?php echo $m['sortie']; ?></td>
+                                <td><?php echo $m['libelle']; ?></td>
                                 <td><b><?php echo $m['solde']; ?></b></td>
                             </tr>
                         <?php }
@@ -41,6 +41,16 @@
             <?php if(count($mouvement) == 0){ ?>
                     <b class="text-center">Vide</b>
             <?php } ?>
+
+            <table class="table table-borderless" id="filter">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Résultat</th>
+                        <th scope="col">+/- 0 </th>
+                    </tr>
+                </thead>
+            </table>
+
         </div>
 </div>
 <script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>

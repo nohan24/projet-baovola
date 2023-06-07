@@ -30,10 +30,11 @@
                         foreach ($vente as $v) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $v['date']; ?></b></td>
-                                <td><?php echo $v['entree']; ?></td>
-                                <td><?php echo $v['sorite']; ?></td>
-                                <td><b><?php echo $v['libelle']; ?></b></td>
-                                <td><b><?php echo $v['solde']; ?></b></td>
+                                <td><?php echo $v['produit']; ?></td>
+                                <td><?php echo $v['quantite']; ?></td>
+                                <td><?php echo $v['unite']; ?></td>
+                                <td><?php echo $v['prix_unitaire']; ?></td>
+                                <td><b><?php echo $v['montant']; ?></b></td>
                             </tr>
                         <?php }
                     ?>                    
