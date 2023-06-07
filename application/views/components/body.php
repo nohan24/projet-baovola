@@ -94,10 +94,13 @@
                                 Finance
                             </div>
                             <li class="item">
-                                <a href="#">Etat Financier</a>
+                                <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Mouvement financier</a>
                             </li>
                             <li class="item">
-                                <a href="#">Prévision</a>
+                                <a href="<?php echo site_url('finance/vente'); ?>"><i class="fa-regular fa-circle"></i>Ventes</a>
+                            </li>
+                            <li class="item">
+                                <a href="<?php echo site_url('finance/charge'); ?>"><i class="fa-regular fa-circle"></i>Charges</a>
                             </li>
                         </ul>
                     </li>
