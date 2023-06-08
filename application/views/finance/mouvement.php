@@ -9,7 +9,7 @@
         </div>
         <div style="margin-bottom: 20px; background:transparent;">
             <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter3" onkeyup="filterType()" placeholder="Filtrer par libellé">
+            <input type="text" id="filter2" onkeyup="filterEntrepot()" placeholder="Filtrer par libellé">
         </div>
 
             <table class="table table-borderless" id="filter">
@@ -34,8 +34,9 @@
                                 <td><b><?php echo $m['solde']; ?></b></td>
                             </tr>
                         <?php }
-                    ?>                    
+                    ?>          
                 </tbody>
+
             </table>
             <?php if(count($mouvement) == 0){ ?>
                     <b class="text-center">Vide</b>

@@ -9,7 +9,7 @@
         </div>
         <div style="margin-bottom: 20px; background:transparent;">
             <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter3" onkeyup="filterType()" placeholder="Filtrer par produit">
+            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par produit">
         </div>
 
             <table class="table table-borderless" id="filter">
@@ -26,6 +26,7 @@
                 <div class="line"></div>
                 <tbody>
                     <?php 
+                        $vente = array();
                         foreach ($vente as $v) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $v['date']; ?></b></td>
@@ -45,3 +46,4 @@
         </div>
 </div>
 <script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>
+                

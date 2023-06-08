@@ -9,7 +9,7 @@
         </div>
         <div style="margin-bottom: 20px; background:transparent;">
             <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter3" onkeyup="filterType()" placeholder="Filtrer par libellé">
+            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par libellé">
         </div>
 
             <table class="table table-borderless" id="filter">
