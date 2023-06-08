@@ -300,8 +300,8 @@ label {
 .btn-2 {
     background-color: rgb(200, 31, 31);
     color: white;
-    padding: 6px 7px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,6 +325,7 @@ label {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 100%;
 }
 
 .btn-3:hover {
@@ -340,6 +341,7 @@ label {
     color: white;
     padding: 6px 10px;
     border-radius: 5px;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
