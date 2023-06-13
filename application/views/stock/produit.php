@@ -28,7 +28,7 @@
                     foreach ($produits as $produit) { ?>
                         <tr class="text-center">
                             <td><b><?php echo $produit['nom_produit']; ?></b></td>
-                            <td class="d-flex justify-content-center"><a href="<?php echo site_url("stock/deleteProduit/" . $produit['produitid']); ?>" class="btn-2"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
+                            <td class="d-flex justify-content-center"><a href="<?php echo site_url("stock/deleteProduit/" . $produit['produitid']); ?>" class="btn-2" style="width: 30px; heigth:30px;"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                         </tr>
                     <?php }
                     ?>
