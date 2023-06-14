@@ -91,4 +91,15 @@ class Stock extends CI_Controller
         $this->Stock_model->deleteProd($id);
         redirect(site_url('stock/produit'));
     }
+
+    public function insertionMvtSortie()
+    {
+        echo $this->Stock_model->insertSortie($_POST);
+    }
+
+    public function insertionMvtEntre()
+    {
+        $this->Stock_model->insertEntre($_POST);
+        redirect(site_url('stock/mouvement/entree'));
+    }
 }

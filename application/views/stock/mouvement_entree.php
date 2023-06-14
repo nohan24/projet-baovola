@@ -1,52 +1,54 @@
 <style>
     #picked {
-       
+
         font-weight: bold;
     }
 
-    .date-picked{
-        text-align:center;
+    .date-picked {
+        text-align: center;
     }
-    
+
     td {
-   
+
         border-radius: 50px;
         width: 40px;
         height: 40px;
-        margin:0 5px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    th{
-        text-align:center;
+    th {
+        text-align: center;
     }
 
-    tr{
-        display:flex;
-        align-items:center;
-        border:none;
+    tr {
+        display: flex;
+        align-items: center;
+        border: none;
     }
 
-    th{
-        width:50px;
+    th {
+        width: 50px;
     }
-    
-    td,tr,th{
-        color:#191e16;
+
+    td,
+    tr,
+    th {
+        color: #191e16;
     }
 
     .not:hover {
         background-color: rgb(237, 237, 237);
         cursor: pointer;
     }
-    
+
     #calender-header {
         align-items: center;
         color: #fff;
     }
-    
+
     button {
         border: none;
         background-color: transparent;
@@ -54,11 +56,9 @@
         margin: 0 20px;
     }
 
-    .today{
-        background-color:grey;
+    .today {
+        background-color: grey;
     }
-
-
 </style>
 
 <div class="p-1">
@@ -68,16 +68,16 @@
             <div class="col-10 mb-2 d-flex align-items-center">
                 <h4 class="me-4">Mouvement d'entrée</h4> <a href="<?php echo site_url("stock/mouvement/sortie"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement de sortie ici</a>
             </div>
-            <form action="#" method="post" class="d-flex gap-2 px-5 py-3">
+            <form action="<?php echo site_url('stock/insertionMvtEntre'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
                 <input type="hidden" name="date" id="date-mvt">
                 <div class="w-50">
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="produit">Produit : </label>
                         <select name="produit">
-                            <?php  
-                                foreach ($produits as $produit) { ?>
-                                    <option value="<?php echo $produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?></option>
-                                <?php }
+                            <?php
+                            foreach ($produits as $produit) { ?>
+                                <option value="<?php echo $produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?></option>
+                            <?php }
                             ?>
                         </select>
                     </div>
@@ -91,10 +91,10 @@
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="entrepot">Entrepot : </label>
                         <select name="entrepot">
-                            <?php  
-                                foreach ($entrepots as $entrepot) { ?>
-                                    <option value="<?php echo $entrepot['entrepotid']; ?>"><?php echo $entrepot['adresse']; ?></option>
-                                <?php }
+                            <?php
+                            foreach ($entrepots as $entrepot) { ?>
+                                <option value="<?php echo $entrepot['entrepotid']; ?>"><?php echo $entrepot['adresse']; ?></option>
+                            <?php }
                             ?>
                         </select>
                     </div>
@@ -124,7 +124,7 @@
                             <tbody id="calendar">
 
                             </tbody>
-                        </table>    
+                        </table>
                     </div>
                 </div>
             </form>
@@ -159,12 +159,12 @@
         "Decembre",
     ];
     let ss = (thisMonth + 1).toString()
-    if(ss.length < 2){
-        ss = "0"+ss
+    if (ss.length < 2) {
+        ss = "0" + ss
     }
     let da = DATE.getDate().toString()
-    if(da.length < 2){
-        da = "0"+da
+    if (da.length < 2) {
+        da = "0" + da
     }
     picked.innerHTML = `${year}/${ss}/${da}`;
     document.getElementById("date-mvt").value = `${year}/${ss}/${da}`;
@@ -196,18 +196,18 @@
                     }
 
                     column.onclick = () => {
-                        let mm = (thisMonth+1).toString();
+                        let mm = (thisMonth + 1).toString();
                         let dd = (column.textContent).toString();
-                        if(mm.length < 2){
-                            mm = "0"+mm
+                        if (mm.length < 2) {
+                            mm = "0" + mm
                         }
-                        if(dd.length < 2){
-                            dd = "0"+dd
+                        if (dd.length < 2) {
+                            dd = "0" + dd
                         }
-                        
+
                         picked.innerHTML = `${year}/${mm}/${dd}`;
                         document.getElementById("date-mvt").value = `${year}/${mm}/${dd}`;
-                       
+
                     };
 
                     row.appendChild(column);
