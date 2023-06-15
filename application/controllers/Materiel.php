@@ -12,6 +12,29 @@ class Materiel extends CI_Controller
     {
         $data['title'] = 'Fournisseur.';
         $data['content'] = 'materiel/fournisseur';
+        $data['fournisseurs'] = $this->Materiel_model->getFournisseur();
         $this->load->view('components/body', $data);
+    }
+
+    public function insertionFournisseur()
+    {
+        $this->Materiel_model->ajoutFournisseur($_POST);
+        redirect(site_url('materiel/fournisseur'));
+    }
+
+    public function achat($state = "")
+    {
+        $data['state'] = $state;
+        $data['title'] = 'Achat de matériel.';
+        $data['content'] = 'materiel/achat_materiel';
+        $data['fournisseurs'] = $this->Materiel_model->getFournisseur();
+        $this->load->view('components/body', $data);
+    }
+
+    public function insertionAchat()
+    {
+        $state = $this->Materiel_model->ajoutAchat($_POST);
+        if ($state != 0) redirect(site_url('materiel/achat/add'));
+        else redirect(site_url('materiel/achat/error'));
     }
 }

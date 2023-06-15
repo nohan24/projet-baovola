@@ -57,7 +57,7 @@
                             <i class="fa-solid fa-chevron-left"></i>Matériel
                         </div>
                         <li class="item">
-                            <a href="#"><i class="fa-regular fa-circle"></i> Achat matériel</a>
+                            <a href="<?php echo site_url('materiel/achat'); ?>"><i class="fa-regular fa-circle"></i> Achat matériel</a>
                         </li>
                         <li class="item">
                             <a href="#"><i class="fa-regular fa-circle"></i> Location matériel</a>

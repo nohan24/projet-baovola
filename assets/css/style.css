@@ -364,6 +364,26 @@ label {
 .success {
     color: white;
     background-color: var(--primary);
+    font-size: 14px;
+    width: 200px;
+    padding: 3px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error {
+    color: white;
+    background-color: rgb(200, 31, 31);
+    font-size: 14px;
+    width: 200px;
+    padding: 3px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success i,
+.error i {
+    color: white;
 }
 
 .etat-card {

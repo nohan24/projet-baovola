@@ -173,11 +173,11 @@ CREATE VIEW v_vente AS
 CREATE TABLE fournisseur(
     FournisseurId SERIAL PRIMARY KEY,
     Nom VARCHAR(80),
-    Coordonne VARCHAR(100),
+    Coordonnee VARCHAR(100),
     Adresse VARCHAR(100)
 );
 
-CREATE TABLE fournisseur_dispo(
+CREATE TABLE fournisseur_non_dispo(
     fournisseur_dispo_id SERIAL PRIMARY KEY,
     FournisseurId INT,
     FOREIGN KEY(FournisseurId) REFERENCES fournisseur(FournisseurId)
@@ -188,11 +188,10 @@ CREATE TABLE achat_materiel(
     FournisseurId INT,
     Nom_materiel VARCHAR(80),
     Date_achat DATE,
-    Type_materiel VARCHAR(50),
+    Type_materiel INT,
     Quantite DOUBLE PRECISION,
     Prix_unitaire DOUBLE PRECISION,
     FOREIGN KEY(FournisseurId) REFERENCES fournisseur(FournisseurId)
-
 );
 
 CREATE TABLE location_materiel(
@@ -205,6 +204,9 @@ CREATE TABLE location_materiel(
     Prix_unitaire_jour DOUBLE PRECISION,
     FOREIGN KEY(FournisseurId) REFERENCES fournisseur(FournisseurId)
 );
+
+CREATE VIEW v_fournisseur_dispo as
+    SELECT * FROM fournisseur WHERE FournisseurId NOT IN (SELECT FournisseurId FROM fournisseur_non_dispo);
 
 INSERT INTO fournisseur VALUES(DEFAULT,'kiva','coordonne','c17 Eter');
 INSERT INTO location_materiel VALUES(DEFAULT,1,'tracteur','2023/10/02',30,20,12000)
