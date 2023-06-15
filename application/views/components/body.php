@@ -63,7 +63,7 @@
                             <a href="#"><i class="fa-regular fa-circle"></i> Location matériel</a>
                         </li>
                         <li class="item">
-                            <a href="#"><i class="fa-regular fa-circle"></i> Fournisseur</a>
+                            <a href="<?php echo site_url('materiel/fournisseur'); ?>"><i class="fa-regular fa-circle"></i> Fournisseur</a>
                         </li>
                         <li class="item">
                             <a href="#"><i class="fa-regular fa-circle"></i> Inventaire</a>
