@@ -97,7 +97,7 @@
                         </div>
                         <li class="item">
 
-                            <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Mouvement financier</a>
+                            <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Caisse</a>
                         </li>
                         <li class="item">
                             <a href="<?php echo site_url('finance/vente'); ?>"><i class="fa-regular fa-circle"></i>Ventes</a>

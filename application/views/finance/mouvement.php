@@ -12,45 +12,47 @@
             <input type="text" id="filter2" onkeyup="filterEntrepot()" placeholder="Filtrer par libellé">
         </div>
 
-            <table class="table table-borderless" id="filter">
-                <thead>
+        <table class="table table-borderless" id="filter">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Date</th>
+                    <th scope="col">Entrée</th>
+                    <th scope="col">Sortie</th>
+                    <th scope="col">Libellé</th>
+                    <th scope="col">Solde</th>
+                </tr>
+            </thead>
+            <div class="line"></div>
+            <tbody>
+                <?php
+                $resultat = 0;
+                foreach ($mouvement as $m) { ?>
                     <tr class="text-center">
-                        <th scope="col">Date</th>
-                        <th scope="col">Entrée</th>
-                        <th scope="col">Sortie</th>
-                        <th scope="col">Libellé</th>
-                        <th scope="col">Solde</th>
+                        <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>
+                        <td><?php echo $m['entree']; ?></td>
+                        <td><?php echo $m['sortie']; ?></td>
+                        <td><?php echo $m['libelle']; ?></td>
+                        <td><b><?php echo $m['solde']; ?></b></td>
+                        <?php $resultat += $m['solde']; ?>
                     </tr>
-                </thead>
-                <div class="line"></div>
-                <tbody>
-                    <?php 
-                        foreach ($mouvement as $m) { ?>
-                            <tr class="text-center">
-                                <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>
-                                <td><?php echo $m['entree']; ?></td>
-                                <td><?php echo $m['sortie']; ?></td>
-                                <td><?php echo $m['libelle']; ?></td>
-                                <td><b><?php echo $m['solde']; ?></b></td>
-                            </tr>
-                        <?php }
-                    ?>          
-                </tbody>
+                <?php }
+                ?>
+            </tbody>
 
-            </table>
-            <?php if(count($mouvement) == 0){ ?>
-                    <b class="text-center">Vide</b>
-            <?php } ?>
+        </table>
+        <?php if (count($mouvement) == 0) { ?>
+            <b class="text-center">Vide</b>
+        <?php } ?>
 
-            <table class="table table-borderless" id="filter">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Résultat</th>
-                        <th scope="col">+/- 0 </th>
-                    </tr>
-                </thead>
-            </table>
+        <table class="table table-borderless" id="filter">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Résultat</th>
+                    <th scope="col"><?php echo number_format(doubleval($resultat), 2); ?> </th>
+                </tr>
+            </thead>
+        </table>
 
-        </div>
+    </div>
 </div>
 <script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>
