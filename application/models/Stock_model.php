@@ -5,14 +5,14 @@ class Stock_model extends CI_Model
     public function getProduit()
     {
         $this->db->select('*');
-        $this->db->from("v_p_dispo");
+        $this->db->from("v_produit_dispo");
         return $this->db->get()->result_array();
     }
 
     public function getEntrepot()
     {
         $this->db->select('*');
-        $this->db->from("v_e_dispo");
+        $this->db->from("v_entrepot_dispo");
         return $this->db->get()->result_array();
     }
 
@@ -86,6 +86,8 @@ class Stock_model extends CI_Model
         $sql = "insert into sortie_stock values(default, %s, %s, %s, %s, %s)";
         $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite'], $data['type']));
         if ($data['type'] != 3) {
+            $sql = "insert into ";
+            $this->db->query();
         }
         return 1;
     }
