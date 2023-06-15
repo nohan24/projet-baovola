@@ -54,6 +54,7 @@ class Materiel extends CI_Controller
             $data['content'] = 'materiel/inventaire_achat';
         } else {
             $data['title'] = 'Inventaire des locations.';
+            $data['locations'] = $this->Materiel_model->getLocation();
             $data['content'] = 'materiel/inventaire_location';
         }
         $this->load->view('components/body', $data);

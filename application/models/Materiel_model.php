@@ -21,4 +21,11 @@ class Materiel_model extends CI_Model
         $ret = $this->db->query(sprintf($sql, $data['fournisseur'], $this->db->escape($data['nom']), $this->db->escape($data['date']), $data['type'], $data['quantite'], $data['pu']));
         return $ret;
     }
+
+    public function getLocation()
+    {
+        $this->db->select("*");
+        $this->db->from("v_location_actuel");
+        return $this->db->get()->result_array();
+    }
 }
