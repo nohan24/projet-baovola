@@ -101,8 +101,11 @@
                         </div>
                         <li class="item">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             <a href="#">Second sublink</a>
 =======
+=======
+>>>>>>> Stashed changes
                             <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Mouvement financier</a>
                         </li>
                         <li class="item">
@@ -110,6 +113,9 @@
                         </li>
                         <li class="item">
                             <a href="<?php echo site_url('finance/charge'); ?>"><i class="fa-regular fa-circle"></i>Charges</a>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         </li>
                     </ul>
