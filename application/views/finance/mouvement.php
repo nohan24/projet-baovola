@@ -25,6 +25,7 @@
                 <div class="line"></div>
                 <tbody>
                     <?php 
+                        $resultat = 0 ;
                         foreach ($mouvement as $m) { ?>
                             <tr class="text-center">
                                 <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>
@@ -32,6 +33,7 @@
                                 <td><?php echo $m['sortie']; ?></td>
                                 <td><?php echo $m['libelle']; ?></td>
                                 <td><b><?php echo $m['solde']; ?></b></td>
+                                <?php $resultat += $m['solde'];?>
                             </tr>
                         <?php }
                     ?>          
@@ -46,7 +48,7 @@
                 <thead>
                     <tr class="text-center">
                         <th scope="col">Résultat</th>
-                        <th scope="col">+/- 0 </th>
+                        <th scope="col"><?php echo number_format(doubleval($resultat),2); ?> </th>
                     </tr>
                 </thead>
             </table>
