@@ -11,9 +11,9 @@
                         foreach ($e['element'] as $element) { ?>
                             <div class="etat-card">
                                 <h5> <?php echo $element['produit']; ?></h5>
-                                <b>Quantité stocké : <?php echo $element['instock']; ?> <span style="font-size:10px; background:transparent;">x1000 Kg</span></b>
+                                <b>Quantité stocké : <?php echo $element['instock']; ?> <span style="font-size:10px; background:transparent;">x Kg</span></b>
                                 <br>
-                                <b>Quantité restante : <?php echo $element['qtt_max'] - $element['instock']; ?> <span style="font-size:10px; background:transparent;">x1000 Kg</span></b>
+                                <b>Quantité restante : <?php echo $element['qtt_max'] - $element['instock']; ?> <span style="font-size:10px; background:transparent;">x Kg</span></b>
                             </div>
                         <?php }
                         ?>

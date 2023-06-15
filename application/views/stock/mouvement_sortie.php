@@ -75,7 +75,7 @@
                         <label class="mb-2" for="quantite">Quantité : </label>
                         <div class="d-flex align-items-end gap-1">
                             <input type="text" name="quantite" placeholder="Quantité mouvementée">
-                            <b style="font-size:14px; background:transparent;">xKg</b>
+                            <b style="font-size:14px; background:transparent;">x Kg</b>
                         </div>
                     </div>
                     <div class="mb-3 d-flex flex-column">

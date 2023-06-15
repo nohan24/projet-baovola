@@ -147,7 +147,6 @@ CREATE TABLE unite (
     Nom_unite VARCHAR(60) NOT NULL
 );
 
-
 CREATE TABLE transac(
     TransacId SERIAL PRIMARY KEY,
     etat INT, -- vente 7, charge 6
