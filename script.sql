@@ -199,6 +199,7 @@ CREATE TABLE location_materiel(
     FournisseurId INT,
     Nom_materiel VARCHAR(80),
     Date_debut DATE,
+    Type_materiel INT,
     Duree INT,
     Quantite DOUBLE PRECISION,
     Prix_unitaire_jour DOUBLE PRECISION,

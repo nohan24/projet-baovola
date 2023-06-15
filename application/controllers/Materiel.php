@@ -31,6 +31,15 @@ class Materiel extends CI_Controller
         $this->load->view('components/body', $data);
     }
 
+    public function location($state = "")
+    {
+        $data['state'] = $state;
+        $data['title'] = 'Achat de matériel.';
+        $data['content'] = 'materiel/location';
+        $data['fournisseurs'] = $this->Materiel_model->getFournisseur();
+        $this->load->view('components/body', $data);
+    }
+
     public function insertionAchat()
     {
         $state = $this->Materiel_model->ajoutAchat($_POST);

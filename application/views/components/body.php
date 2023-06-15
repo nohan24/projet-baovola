@@ -60,7 +60,7 @@
                             <a href="<?php echo site_url('materiel/achat'); ?>"><i class="fa-regular fa-circle"></i> Achat matériel</a>
                         </li>
                         <li class="item">
-                            <a href="#"><i class="fa-regular fa-circle"></i> Location matériel</a>
+                            <a href="<?php echo site_url('materiel/location'); ?>"><i class="fa-regular fa-circle"></i> Location matériel</a>
                         </li>
                         <li class="item">
                             <a href="<?php echo site_url('materiel/fournisseur'); ?>"><i class="fa-regular fa-circle"></i> Fournisseur</a>

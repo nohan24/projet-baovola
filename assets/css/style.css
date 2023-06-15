@@ -291,6 +291,11 @@ label {
     width: 130px;
 }
 
+.label {
+    color: #92A792;
+    font-size: 14px;
+}
+
 .btn-1 {
     background-color: var(--primary);
     color: white;
