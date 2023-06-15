@@ -209,7 +209,8 @@ CREATE TABLE location_materiel(
 CREATE VIEW v_fournisseur_dispo as
     SELECT * FROM fournisseur WHERE FournisseurId NOT IN (SELECT FournisseurId FROM fournisseur_non_dispo);
 
-INSERT INTO fournisseur VALUES(DEFAULT,'kiva','coordonne','c17 Eter');
-INSERT INTO location_materiel VALUES(DEFAULT,1,'tracteur','2023/10/02',30,20,12000)
-INSERT INTO achat_materiel VALUES(DEFAULT,1,'tracteur','2023/02/02','fer',3,100000);
+CREATE VIEW v_stock_difference as 
+    SELECT *, DATE_PART('day', Date_debut-CURRENT_TIMESTAMP) AS days FROM location_materiel;
 
+CREATE VIEW v_location_actuel as 
+    SELECT * FROM v_stock_difference WHERE days > 0;

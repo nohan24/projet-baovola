@@ -46,4 +46,16 @@ class Materiel extends CI_Controller
         if ($state != 0) redirect(site_url('materiel/achat/add'));
         else redirect(site_url('materiel/achat/error'));
     }
+
+    public function inventaire($type = "achat")
+    {
+        if ($type == "achat") {
+            $data['title'] = 'Inventaire des achats.';
+            $data['content'] = 'materiel/inventaire_achat';
+        } else {
+            $data['title'] = 'Inventaire des locations.';
+            $data['content'] = 'materiel/inventaire_location';
+        }
+        $this->load->view('components/body', $data);
+    }
 }

@@ -66,7 +66,7 @@
                             <a href="<?php echo site_url('materiel/fournisseur'); ?>"><i class="fa-regular fa-circle"></i> Fournisseur</a>
                         </li>
                         <li class="item">
-                            <a href="#"><i class="fa-regular fa-circle"></i> Inventaire</a>
+                            <a href="<?php echo site_url("materiel/inventaire/achat"); ?>"><i class="fa-regular fa-circle"></i> Inventaire</a>
                         </li>
                     </ul>
                 </li>
