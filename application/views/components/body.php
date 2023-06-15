@@ -34,7 +34,11 @@
                             <a href="<?php echo site_url('stock/historique/sortie'); ?>"><i class="fa-regular fa-circle"></i> Historique</a>
                         </li>
                         <li class="item">
+<<<<<<< Updated upstream
                             <a href="<?php echo site_url('stock/etat'); ?>"><i class="fa-regular fa-circle"></i> Etat de stock</a>
+=======
+                            <a href="#"><i class="fa-regular fa-circle"></i> Etat de stock</a>
+>>>>>>> Stashed changes
                         </li>
                         <li class="item">
                             <a href="<?php echo site_url('stock/mouvement'); ?>"><i class="fa-regular fa-circle"></i> Mouvement stock</a>
@@ -96,7 +100,17 @@
                             Finance
                         </div>
                         <li class="item">
+<<<<<<< Updated upstream
                             <a href="#">Second sublink</a>
+=======
+                            <a href="<?php echo site_url('finance/mouvement'); ?>"><i class="fa-regular fa-circle"></i>Mouvement financier</a>
+                        </li>
+                        <li class="item">
+                            <a href="<?php echo site_url('finance/vente'); ?>"><i class="fa-regular fa-circle"></i>Ventes</a>
+                        </li>
+                        <li class="item">
+                            <a href="<?php echo site_url('finance/charge'); ?>"><i class="fa-regular fa-circle"></i>Charges</a>
+>>>>>>> Stashed changes
                         </li>
                     </ul>
                 </li>
