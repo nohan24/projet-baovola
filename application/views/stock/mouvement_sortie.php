@@ -93,6 +93,7 @@
                         <select name="type">
                             <option value="1">Local</option>
                             <option value="2">Exportation</option>
+                            <option value="3">Perte</option>
                         </select>
                     </div>
                     <input type="submit" value="Valider" class="btn-1">
