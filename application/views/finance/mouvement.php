@@ -3,7 +3,7 @@
     <div class="card">
         <div class="row">
             <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Mouvement financier</h4>
+                <h4 class="me-4">Caisse</h4>
             </div>
 
         </div>

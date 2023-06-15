@@ -8,7 +8,7 @@ class Finance extends CI_Controller
         $this->load->model('Finance_model');
     }
 
-    public function mouvement()
+    public function caisse()
     {
         $this->load->model('Finance_model');
         $data['title'] = "Mouvement.";
