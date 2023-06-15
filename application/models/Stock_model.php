@@ -84,6 +84,7 @@ class Stock_model extends CI_Model
             return -1;
         }
         $sql = "insert into sortie_stock values(default, %s, %s, %s, %s, %s)";
+
         $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite'], $data['type']));
         return 1;
     }
