@@ -101,7 +101,6 @@
                         <select name="type">
                             <option value="1">Entrepôt</option>
                             <option value="2">Champs</option>
-                            <option value="3">Fourniture</option>
                         </select>
                     </div>
                     <div class="mb-3 d-flex flex-column">

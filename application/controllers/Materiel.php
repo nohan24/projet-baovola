@@ -59,6 +59,7 @@ class Materiel extends CI_Controller
         if ($type == "achat") {
             $data['title'] = 'Inventaire des achats.';
             $data['content'] = 'materiel/inventaire_achat';
+            $data['achats'] = $this->Materiel_model->getAchat();
         } else {
             $data['title'] = 'Inventaire des locations.';
             $data['locations'] = $this->Materiel_model->getLocation();

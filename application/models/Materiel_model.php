@@ -36,4 +36,11 @@ class Materiel_model extends CI_Model
         $this->db->from("v_location_actuel");
         return $this->db->get()->result_array();
     }
+
+    public function getAchat()
+    {
+        $this->db->select("*");
+        $this->db->from("achat_materiel");
+        return $this->db->get()->result_array();
+    }
 }

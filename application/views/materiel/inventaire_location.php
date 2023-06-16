@@ -24,8 +24,19 @@
                         <td><?php echo $l['nom_materiel']; ?></td>
                         <td><?php echo $l['nom_fournisseur']; ?></td>
                         <td><?php echo $l['quantite']; ?></td>
-                        <td><?php echo $l['type_materiel']; ?></td>
-                        <td><?php echo $l['days'] ?> jour(s)</td>
+                        <td>
+                            <?php
+                            if ($l['type_materiel'] == 1) {
+                                $type = "Entrepôt";
+                                $class = "entrepot";
+                            } else {
+                                $type = "Champs";
+                                $class = "champs";
+                            }
+                            ?>
+                            <span class="<?php echo $class; ?>"><?php echo $type; ?></span>
+                        </td>
+                        <td><b><?php echo $l['days'] ?> jour(s)</b></td>
                     </tr>
                 <?php }
                 ?>

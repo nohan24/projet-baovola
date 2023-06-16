@@ -244,7 +244,8 @@ tr {
     border-bottom: thin solid #F1F1F1;
 }
 
-.local {
+.local,
+.champs {
     width: 100%;
     padding: 4px 20px;
     color: white;
@@ -254,7 +255,8 @@ tr {
     background-color: var(--secondary);
 }
 
-.exportation {
+.exportation,
+.entrepot {
     width: 100%;
     padding: 4px 20px;
     color: white;
