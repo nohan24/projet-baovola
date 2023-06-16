@@ -22,8 +22,9 @@ class Stock extends CI_Controller
         $this->load->view('components/body', $data);
     }
 
-    public function mouvement($mvt = "sortie")
+    public function mouvement($mvt = "sortie", $state = "")
     {
+        $data['state'] = $state;
         $data['entrepots'] = $this->Stock_model->getEntrepot();
         $data['produits'] = $this->Stock_model->getProduit();
         $data['title'] = "Mouvement de stock.";
@@ -94,12 +95,25 @@ class Stock extends CI_Controller
 
     public function insertionMvtSortie()
     {
-        echo $this->Stock_model->insertSortie($_POST);
+        $state = $this->Stock_model->insertSortie($_POST);
+        if ($state == -1) {
+            redirect(site_url('stock/mouvement/sortie/limit'));
+        }
+        if ($state == 1) {
+            redirect(site_url('stock/mouvement/sortie/add'));
+        }
+        redirect(site_url('stock/mouvement/sortie/error'));
     }
 
     public function insertionMvtEntre()
     {
-        $this->Stock_model->insertEntre($_POST);
-        redirect(site_url('stock/mouvement/entree'));
+        $state = $this->Stock_model->insertEntre($_POST);
+        if ($state == -1) {
+            redirect(site_url('stock/mouvement/entree/limit'));
+        }
+        if ($state == 1) {
+            redirect(site_url('stock/mouvement/entree/add'));
+        }
+        redirect(site_url('stock/mouvement/entree/error'));
     }
 }

@@ -75,6 +75,7 @@ class Stock_model extends CI_Model
 
     public function insertSortie($data)
     {
+        $ret = 0;
         $this->db->select('instock');
         $this->db->from('v_etat_stock');
         $this->db->where('entrepotid', $data['entrepot']);
@@ -84,16 +85,18 @@ class Stock_model extends CI_Model
             return -1;
         }
         $sql = "insert into sortie_stock values(default, %s, %s, %s, %s, %s)";
-        $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite'], $data['type']));
+        $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite'], $data['type']));
         if ($data['type'] != 3) {
-            $sql = "insert into ";
-            $this->db->query();
+            // $sql = "insert into ";
+            // $this->db->query();
+            $ret = 1;
         }
-        return 1;
+        return $ret;
     }
 
     public function insertEntre($data)
     {
+        $ret = 0;
         $this->db->select('instock');
         $this->db->from('v_etat_stock');
         $this->db->where('entrepotid', $data['entrepot']);
@@ -103,8 +106,8 @@ class Stock_model extends CI_Model
             return -1;
         }
         $sql = "insert into entre_stock values(default, %s, %s, %s, %s)";
-        $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite']));
-        return 1;
+        $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite']));
+        return $ret;
     }
 
     public function getEtatStock()

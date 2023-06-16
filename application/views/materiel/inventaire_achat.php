@@ -1,8 +1,8 @@
 <div class="p-1">
-    <h2 class="mb-3">Stock</h2>
+    <h2 class="mb-3">Matériel</h2>
     <div class="card">
         <div class="col-10 mb-2 d-flex align-items-center">
-            <h4 class="me-4">Mouvement d'entrée</h4> <a href="<?php echo site_url("materiel/inventaire/location"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Inventaire des locations ici</a>
+            <h4 class="me-4">Inventaire des matériels achetés</h4> <a href="<?php echo site_url("materiel/inventaire/location"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Inventaire des locations ici</a>
         </div>
         <table class="table table-borderless" id="filter">
             <thead>

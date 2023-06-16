@@ -1,13 +1,13 @@
 <div class="p-1">
-    <h2 class="mb-3">Stock</h2>
+    <h2 class="mb-3">Matériel</h2>
     <div class="card">
         <div class="col-10 mb-2 d-flex align-items-center">
-            <h4 class="me-4">Mouvement d'entrée</h4> <a href="<?php echo site_url("materiel/inventaire/achat"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Inventaire des locations ici</a>
+            <h4 class="me-4">Inventaire des matériels loués</h4> <a href="<?php echo site_url("materiel/inventaire/achat"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Inventaire des achats ici</a>
         </div>
         <table class="table table-borderless" id="filter">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">Date</th>
+                    <th scope="col">Date location</th>
                     <th scope="col">Nom du matériel</th>
                     <th scope="col">Fournisseur</th>
                     <th scope="col">Quantité</th>
@@ -17,7 +17,18 @@
             </thead>
             <div class="line"></div>
             <tbody>
-
+                <?php
+                foreach ($locations as $l) { ?>
+                    <tr class="text-center">
+                        <td><?php echo $l['date_debut']; ?></td>
+                        <td><?php echo $l['nom_materiel']; ?></td>
+                        <td><?php echo $l['nom_fournisseur']; ?></td>
+                        <td><?php echo $l['quantite']; ?></td>
+                        <td><?php echo $l['type_materiel']; ?></td>
+                        <td><?php echo $l['days'] ?> jour(s)</td>
+                    </tr>
+                <?php }
+                ?>
             </tbody>
         </table>
     </div>

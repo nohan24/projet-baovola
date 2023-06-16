@@ -22,6 +22,14 @@ class Materiel_model extends CI_Model
         return $ret;
     }
 
+    public function ajoutLocation($data)
+    {
+        $ret = 0;
+        $sql = "INSERT INTO location_materiel VALUES(default,%s,%s,%s,%s,%s,%s,%s)";
+        $ret = $this->db->query(sprintf($sql, $data['fournisseur'], $this->db->escape($data['nom']), $this->db->escape($data['date']), $data['type'], $data['duree'], $data['quantite'], $data['pu']));
+        return $ret;
+    }
+
     public function getLocation()
     {
         $this->db->select("*");

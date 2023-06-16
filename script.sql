@@ -210,7 +210,8 @@ CREATE VIEW v_fournisseur_dispo as
     SELECT * FROM fournisseur WHERE FournisseurId NOT IN (SELECT FournisseurId FROM fournisseur_non_dispo);
 
 CREATE VIEW v_stock_difference as 
-    SELECT *, DATE_PART('day', Date_debut-CURRENT_TIMESTAMP) AS days FROM location_materiel;
+    SELECT *, DATE_PART('day', (Date_debut + duree)-CURRENT_TIMESTAMP) AS days FROM location_materiel;
 
 CREATE VIEW v_location_actuel as 
-    SELECT * FROM v_stock_difference WHERE days > 0;
+    SELECT v.*,f.nom as nom_fournisseur FROM v_stock_difference v JOIN fournisseur f ON v.FournisseurId = f.FournisseurId WHERE days > 0;
+

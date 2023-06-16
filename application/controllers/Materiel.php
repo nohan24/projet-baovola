@@ -47,6 +47,13 @@ class Materiel extends CI_Controller
         else redirect(site_url('materiel/achat/error'));
     }
 
+    public function insertionLocation()
+    {
+        $state = $this->Materiel_model->ajoutLocation($_POST);
+        if ($state != 0) redirect(site_url('materiel/location/add'));
+        else redirect(site_url('materiel/achat/error'));
+    }
+
     public function inventaire($type = "achat")
     {
         if ($type == "achat") {

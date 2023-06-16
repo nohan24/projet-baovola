@@ -56,7 +56,17 @@
     <div class="card">
         <div class="row">
             <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Mouvement de sortie</h4> <a href="<?php echo site_url("stock/mouvement/entree"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement d'entrée ici</a>
+                <h4 class="me-4">Mouvement de sortie</h4> <a href="<?php echo site_url("stock/mouvement/entree"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement d'entrée ici</a><?php
+                                                                                                                                                                                                                    if ($state == "add") { ?>
+                    <span class="success ms-2"><i class="fa-solid fa-check"></i> Sortie validé</span>
+                <?php }
+                                                                                                                                                                                                                    if ($state == "error") { ?>
+                    <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Sortie non validé</span>
+                <?php }
+                                                                                                                                                                                                                    if ($state == "limit") { ?>
+                    <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Quantité non supporté</span>
+                <?php }
+                ?>
             </div>
             <form action="<?php echo site_url('stock/insertionMvtSortie'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
                 <input type="hidden" name="date" id="date-mvt">

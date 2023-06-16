@@ -33,7 +33,7 @@
                         <label class="mb-2" for="<?php echo 'p' . $produit['produitid']; ?>"><?php echo $produit['nom_produit']; ?> : </label>
                         <div class="d-flex align-items-end gap-2">
                             <input type="number" name="<?php echo 'p' . $produit['produitid']; ?>" value="0.00" step="0.01" required>
-                            <b style="font-size:14px; background:transparent;">x1000 Kg</b>
+                            <b style="font-size:14px; background:transparent;">x Kg</b>
                         </div>
                     </div>
                 <?php }
