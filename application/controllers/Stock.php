@@ -125,4 +125,10 @@ class Stock extends CI_Controller
         $data['detail'] = $this->Stock_model->getDetailEntrepot($id);
         $this->load->view('components/body', $data);
     }
+
+    public function modifEntrepot()
+    {
+        $this->Stock_model->editEntrepot($_POST);
+        redirect(site_url('stock/modification/entrepot/' . $_POST['entrepotid']));
+    }
 }

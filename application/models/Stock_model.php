@@ -143,4 +143,14 @@ class Stock_model extends CI_Model
         $this->db->where('entrepotid', $id);
         return $this->db->get()->result_array();
     }
+
+    public function editEntrepot($data)
+    {
+        $sql1 = "update entrepot set adresse = %s, superficie=%s, hauteur = %s where entrepotid = %s";
+        $sql2 = "update detail_entrepot set quantitestock = %s where detail_entrepot_id = %s";
+        $this->db->query(sprintf($sql1, $this->db->escape(trim($data['adresse'])), $data['superficie'], $data['hauteur'], $data['entrepotid']));
+        foreach ($this->getDetailEntrepot($data['entrepotid']) as $p) {
+            $this->db->query(sprintf($sql2, $data['p' . $p['detail_entrepot_id']], $p['detail_entrepot_id']));
+        }
+    }
 }

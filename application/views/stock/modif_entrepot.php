@@ -2,9 +2,9 @@
     <h2 class="mb-3">Entrepôt</h2>
     <div class="card">
         <h4>Edition d'entrepôt</h4>
-        <form action="<?php echo site_url('stock/insertionMvtEntre'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
+        <form action="<?php echo site_url('stock/modifEntrepot'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
             <div>
-
+                <input type="hidden" name="entrepotid" value="<?php echo $entrepot['entrepotid']; ?>">
                 <div class="mb-3 d-flex gap-3">
                     <div class="mb-3 d-flex flex-column">
                         <label class="mb-2" for="quantite">Adresse : </label>
@@ -34,7 +34,7 @@
                     <div class="mb-3 d-flex align-items-center gap-4">
                         <label class="mb-2"><?php echo $d['nom_produit']; ?> : </label>
                         <div class="d-flex align-items-end gap-2">
-                            <input type="number" name="" <?php echo 'd' . $d['produitid']; ?> value="<?php echo $d['quantitestock'] ?>" step="0.01" required>
+                            <input type="number" name="<?php echo 'p' . $d['detail_entrepot_id']; ?>" value="<?php echo $d['quantitestock'] ?>" step="0.01" required>
                             <b style="font-size:14px; background:transparent;">x Kg</b>
                         </div>
                     </div>

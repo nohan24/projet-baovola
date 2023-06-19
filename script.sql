@@ -120,7 +120,7 @@ CREATE VIEW v_entre  as
     select * from detail_entrepot where produitid in (select produitid from v_produit_dispo);
 
 CREATE VIEW v_join_detail as 
-    SELECT e.entrepotid,produitid,adresse,superficie,hauteur,quantitestock from entrepot e inner join v_detail_dispo d on e.entrepotid = d.entrepotid;
+    SELECT d.detail_entrepot_Id,e.entrepotid,produitid,adresse,superficie,hauteur,quantitestock from entrepot e inner join v_detail_dispo d on e.entrepotid = d.entrepotid;
 
 CREATE VIEW v_etat_stock as  
     SELECT v.*,p.nom_produit,coalesce(coalesce(e.sum,0) - coalesce(s.sum,0),0) as instock from v_join_detail v left join v_sortie s on (v.entrepotid = s.entrepotid and v.produitid = s.produitid) left join v_entre e on (v.entrepotid = e.entrepotid and v.produitid = e.produitid) join produit p on v.produitid = p.produitid;
