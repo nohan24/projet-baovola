@@ -62,7 +62,7 @@
                     <td><?php echo $entrepot['adresse']; ?></td>
                     <td><?php echo $entrepot['superficie']; ?> <b>m²</b></td>
                     <td><?php echo $entrepot['hauteur']; ?> <b>m</b></td>
-                    <td class="d-flex justify-content-center gap-2"> <a href="#" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
+                    <td class="d-flex justify-content-center gap-2"> <a href="<?php echo site_url('stock/modification/entrepot/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                 </tr>
             <?php }
             ?>

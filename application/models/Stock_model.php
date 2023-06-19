@@ -9,10 +9,13 @@ class Stock_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function getEntrepot()
+    public function getEntrepot($id = "")
     {
         $this->db->select('*');
         $this->db->from("v_entrepot_dispo");
+        if ($id != "") {
+            $this->db->where("entrepotid", $id);
+        }
         return $this->db->get()->result_array();
     }
 
@@ -25,7 +28,7 @@ class Stock_model extends CI_Model
     public function insertEntrepot($e)
     {
         $sql = "insert into entrepot values(default, %s,%s,%s)";
-        $this->db->query(sprintf($sql, $this->db->escape($e['adresse']), $e['superficie'], $e['hauteur']));
+        $this->db->query(sprintf($sql, $this->db->escape(trim($e['adresse'])), $e['superficie'], $e['hauteur']));
         $prod = $this->getProduit();
         foreach ($prod as $p) {
             $sql = "insert into detail_entrepot values(default,currval('entrepot_seq'),%s,%s)";
@@ -61,7 +64,7 @@ class Stock_model extends CI_Model
         $prod = $this->getProduit();
         $entrepot = $this->getEntrepot();
         $sql = "insert into produit values(default, %s)";
-        $this->db->query(sprintf($sql, $this->db->escape($data['new_product'])));
+        $this->db->query(sprintf($sql, $this->db->escape(trim($data['new_product']))));
         foreach ($entrepot as $e) {
             foreach ($prod as $p) {
                 $this->db->query('delete from detail_entrepot where entrepotid = ' . $e['entrepotid'] . ' and produitid = ' . $p['produitid']);
@@ -106,7 +109,7 @@ class Stock_model extends CI_Model
             return -1;
         }
         $sql = "insert into entre_stock values(default, %s, %s, %s, %s)";
-        $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite']));
+        $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape(trim($data['date'])), $data['quantite']));
         return $ret;
     }
 
@@ -131,5 +134,13 @@ class Stock_model extends CI_Model
             array_push($dict[$e['entrepotid']]['element'], $d);
         }
         return $dict;
+    }
+
+    public function getDetailEntrepot($id)
+    {
+        $this->db->select('*');
+        $this->db->from('v_etat_stock');
+        $this->db->where('entrepotid', $id);
+        return $this->db->get()->result_array();
     }
 }

@@ -116,4 +116,13 @@ class Stock extends CI_Controller
         }
         redirect(site_url('stock/mouvement/entree/error'));
     }
+
+    public function modification($type, $id)
+    {
+        $data['title'] = 'Modification entrepôt.';
+        $data['content'] = 'stock/modif_entrepot';
+        $data['entrepot'] = $this->Stock_model->getEntrepot($id)[0];
+        $data['detail'] = $this->Stock_model->getDetailEntrepot($id);
+        $this->load->view('components/body', $data);
+    }
 }
