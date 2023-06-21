@@ -115,7 +115,7 @@
             </div>
             <label>Date de naissance : </label>
             <input type="date" name="date"><br>
-            <label>Date de début: </label>
+            <label>Date d'embauche: </label>
             <input type="date" name="date">
         </div>
 
