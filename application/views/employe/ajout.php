@@ -148,13 +148,7 @@
             <?php } ?>
 
         </tbody>
-
     </table>
-    <?php //if(count($historique) == 0){ 
-    ?>
-    <b class="text-center">Vide</b>
-    <?php //} 
-    ?>
 </div>
 
 
