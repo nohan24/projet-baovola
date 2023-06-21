@@ -245,7 +245,8 @@ tr {
 }
 
 .local,
-.champs {
+.champs,
+.charge {
     width: 100%;
     padding: 4px 20px;
     color: white;
@@ -256,7 +257,8 @@ tr {
 }
 
 .exportation,
-.entrepot {
+.entrepot,
+.produit {
     width: 100%;
     padding: 4px 20px;
     color: white;

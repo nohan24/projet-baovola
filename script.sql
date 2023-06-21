@@ -145,17 +145,15 @@ CREATE TABLE transac(
     Unitaire double PRECISION,
     FOREIGN KEY(UniteId) REFERENCES unite(UniteId)
 );
+
 CREATE VIEW v_mouvement_financier AS
     SELECT
         Date_transac AS date,
-        SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) AS Entree,
-        SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END) AS Sortie,
+        etat as Entree,
         Libelle,
-        (SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) - SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END)) AS solde
+        (CASE WHEN etat = 6 THEN (Quantite * Unitaire * (-1)) ELSE Quantite * Unitaire END) AS solde
     FROM
-        transac
-    GROUP BY
-        Date_transac, Libelle;
+        transac;
 
 CREATE VIEW v_charge AS
     SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS cout_unitaire,t.Quantite * t.Unitaire AS montant
