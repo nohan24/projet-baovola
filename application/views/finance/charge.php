@@ -1,12 +1,8 @@
 <div class="p-1">
-    <h2 class="mb-3">Stock</h2>
+    <h2 class="mb-3">Insertion charge</h2>
     <div class="card">
         <div class="row">
-            <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Insertion charge</h4> <a href="<?php echo site_url("finance/insertCharge"); ?>" class="link-redirect">
-            </div>
-
-            <form action="<?php echo site_url('stock/insertionMvtEntre'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
+            <form action="<?php echo site_url("finance/insertCharge"); ?>" method="post" class="d-flex gap-2 px-5 py-3">
                 <input type="hidden" name="date_transac" id="date-mvt">
                 <div class="w-50">
                     <div class="mb-3 d-flex flex-column">
