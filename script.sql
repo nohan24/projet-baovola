@@ -125,28 +125,6 @@ CREATE VIEW v_join_detail as
 CREATE VIEW v_etat_stock as  
     SELECT v.*,p.nom_produit,coalesce(coalesce(e.sum,0) - coalesce(s.sum,0),0) as instock from v_join_detail v left join v_sortie s on (v.entrepotid = s.entrepotid and v.produitid = s.produitid) left join v_entre e on (v.entrepotid = e.entrepotid and v.produitid = e.produitid) join produit p on v.produitid = p.produitid;
 
-
-CREATE TABLE caisse(
-    CaisseId SERIAL PRIMARY KEY,
-    Date_caisse DATE NOT NULL,
-    Entree double PRECISION,
-    Sortie double PRECISION,
-    Libelle VARCHAR(80) NOT NULL
-);
-
-CREATE VIEW v_mouvement_financier AS
-    SELECT
-        Date_transac AS date,
-        SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) AS Entree,
-        SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END) AS Sortie,
-        Libelle,
-        (SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) - SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END)) AS solde
-    FROM
-        transac
-    GROUP BY
-        Date_transac, Libelle;
-
-
 CREATE TABLE unite (
     UniteId SERIAL PRIMARY KEY, 
     Nom_unite VARCHAR(60) NOT NULL
@@ -167,6 +145,17 @@ CREATE TABLE transac(
     Unitaire double PRECISION,
     FOREIGN KEY(UniteId) REFERENCES unite(UniteId)
 );
+CREATE VIEW v_mouvement_financier AS
+    SELECT
+        Date_transac AS date,
+        SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) AS Entree,
+        SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END) AS Sortie,
+        Libelle,
+        (SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) - SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END)) AS solde
+    FROM
+        transac
+    GROUP BY
+        Date_transac, Libelle;
 
 CREATE VIEW v_charge AS
     SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS cout_unitaire,t.Quantite * t.Unitaire AS montant

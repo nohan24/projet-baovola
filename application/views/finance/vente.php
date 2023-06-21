@@ -1,3 +1,55 @@
+<style>
+    #picked {
+
+        font-weight: bold;
+    }
+
+    .date-picked {
+        text-align: center;
+    }
+
+    .ta td {
+
+        border-radius: 50px;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ta th {
+        text-align: center;
+    }
+
+    .ta tr {
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+
+    .ta th {
+        width: 50px;
+    }
+
+    .not:hover {
+        background-color: rgb(237, 237, 237);
+        cursor: pointer;
+    }
+
+    #calender-header {
+        align-items: center;
+        color: #fff;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        margin: 0 20px;
+    }
+</style>
 <div class="p-1">
     <h2 class="mb-3">Insertion vente</h2>
     <div class="card">
@@ -22,7 +74,7 @@
                         <select name="unite">
                             <?php
                             foreach ($unites as $unite) { ?>
-                                <option value="<?php echo $unite['UniteId']; ?>"><?php echo $unite['Nom_unite']; ?></option>
+                                <option value="<?php echo $unite['uniteid']; ?>"><?php echo $unite['nom_unite']; ?></option>
                             <?php }
                             ?>
                         </select>
@@ -44,7 +96,7 @@
                             <span id="month" style="color:#264026; text-align:center;"></span>
                             <button id="nm"><i style="color:#264026; font-size:12px;" class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <table class="table table-borderless">
+                        <table class="table table-borderless ta">
                             <thead>
                                 <tr>
                                     <th>D</th>
@@ -66,8 +118,53 @@
         </div>
     </div>
 </div>
+<div class="p-1 mt-3">
+    <h2 class="mb-3">Finance</h2>
+    <div class="card">
+        <div class="row">
+            <div class="col-10 mb-2 d-flex align-items-center">
+                <h4 class="me-4">Vente</h4>
+            </div>
 
+        </div>
+        <div style="margin-bottom: 20px; background:transparent;">
+            <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
+            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par produit">
+        </div>
 
+        <table class="table table-borderless" id="filter">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Date</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Unité</th>
+                    <th scope="col">Prix Unitaire</th>
+                    <th scope="col">Montant</th>
+                </tr>
+            </thead>
+            <div class="line"></div>
+            <tbody>
+                <?php
+                foreach ($vente as $v) { ?>
+                    <tr class="text-center">
+                        <td><b style="background:transparent;"><?php echo $v['date']; ?></b></td>
+                        <td><?php echo $v['libelle']; ?></td>
+                        <td><?php echo $v['quantite']; ?></td>
+                        <td><?php echo $v['unite']; ?></td>
+                        <td><?php echo number_format(doubleval($v['prix_unitaire']), 2); ?> Ar</td>
+                        <td><b><?php echo number_format(doubleval($v['montant']), 2); ?> Ar</b></td>
+                    </tr>
+                <?php }
+                ?>
+            </tbody>
+        </table>
+        <?php if (count($vente) == 0) { ?>
+            <b class="text-center">Vide</b>
+        <?php } ?>
+    </div>
+</div>
+<script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>
 <script>
     const picked = document.getElementById("picked");
     const month = document.getElementById("month");
@@ -190,52 +287,3 @@
         prevMonth()
     })
 </script>
-<div class="p-1">
-    <h2 class="mb-3">Finance</h2>
-    <div class="card">
-        <div class="row">
-            <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Vente</h4>
-            </div>
-
-        </div>
-        <div style="margin-bottom: 20px; background:transparent;">
-            <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par produit">
-        </div>
-
-            <table class="table table-borderless" id="filter">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Date</th>
-                        <th scope="col">Produit</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Unité</th>
-                        <th scope="col">Prix Unitaire</th>
-                        <th scope="col">Montant</th>
-                    </tr>
-                </thead>
-                <div class="line"></div>
-                <tbody>
-                    <?php 
-                        $vente = array();
-                        foreach ($vente as $v) { ?>
-                            <tr class="text-center">
-                                <td><b style="background:transparent;"><?php echo $v['date']; ?></b></td>
-                                <td><?php echo $v['produit']; ?></td>
-                                <td><?php echo $v['quantite']; ?></td>
-                                <td><?php echo $v['unite']; ?></td>
-                                <td><?php echo $v['prix_unitaire']; ?></td>
-                                <td><b><?php echo $v['montant']; ?></b></td>
-                            </tr>
-                        <?php }
-                    ?>                    
-                </tbody>
-            </table>
-            <?php if(count($vente) == 0){ ?>
-                    <b class="text-center">Vide</b>
-            <?php } ?>
-        </div>
-</div>
-<script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>
-                
