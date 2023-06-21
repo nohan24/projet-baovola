@@ -376,6 +376,10 @@ label {
     padding: 3px 0;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    gap: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 .error {
@@ -386,11 +390,16 @@ label {
     padding: 3px 0;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    gap: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 .success i,
 .error i {
     color: white;
+    font-size: 12px;
 }
 
 .etat-card {
@@ -398,4 +407,100 @@ label {
     border-radius: 5px;
     padding: 20px 30px;
     width: calc(100% / 3);
+}
+
+.img {
+    position: relative;
+    color: var(--background);
+    font-size: 75px;
+    top: 25%
+}
+
+.lb-img {
+    width: 100%;
+}
+
+.img-box {
+    padding: 10%;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+    text-align: center;
+    height: 200px;
+    position: relative;
+    width: 100%;
+}
+
+.img-box:hover,
+#input-img:hover {
+    cursor: pointer;
+}
+
+.fa-check,
+.fa-x {
+    color: white;
+    font-size: 20px;
+    left: 10%;
+    position: relative;
+}
+
+.btn-5 {
+    background-color: var(--primary);
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 20px;
+}
+
+.btn-6 {
+    background-color: var(--secondary);
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 20px;
+}
+
+.submit {
+    justify-content: space-evenly;
+}
+
+.genger {
+    font-size: 20px;
+    padding: 20%;
+    border-radius: 100%;
+}
+
+.H {
+    border: 2px solid rgb(38, 38, 112);
+    color: rgb(38, 38, 112);
+}
+
+.F {
+    border: 2px solid rgb(171, 12, 100);
+    color: rgb(171, 12, 100);
+    padding: 20% 22%;
+}
+
+.genre {
+    padding-left: 7%;
+    justify-content: space-evenly;
+}
+
+.genger:hover {
+    cursor: pointer;
+}
+
+#Ha {
+    background-color: rgb(38, 38, 112);
+}
+
+#Fa {
+    background-color: rgb(171, 12, 100);
+}
+
+#message-valid {
+    color: green;
+}
+
+#message-invalid {
+    color: red;
 }
