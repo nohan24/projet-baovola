@@ -504,3 +504,8 @@ label {
 #message-invalid {
     color: red;
 }
+
+.line {
+    width: 100%;
+    border-bottom: thin solid rgba(128, 128, 128, 0.297);
+}

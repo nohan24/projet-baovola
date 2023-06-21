@@ -134,21 +134,21 @@
                 <th class="col-2">Date</th>
                 <th class="col-2">Fonction</th>
                 <th class="col-4">Nom</th>
-                <th class="col-2"></th>
+                <th class="col-2">Action</th>
             </tr>
         </thead>
-        <div class="line"></div>
         <tbody>
             <?php foreach ($employes as $personne) { ?>
                 <tr style="justify-content: space-around;">
                     <td class="col-2"><?php echo $personne['dateembauche'] ?></td>
                     <td class="col-2"><?php echo $personne['libelle'] ?></td>
                     <td class="col-4"><?php echo $personne['nom'] ?> <?php echo $personne['prenomemploye'] ?></td>
-                    <td class="col-2"></td>
+                    <td class="col-2 d-flex gap-2"><a href="#" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                 </tr>
             <?php } ?>
 
         </tbody>
+
     </table>
     <?php //if(count($historique) == 0){ 
     ?>
