@@ -228,3 +228,28 @@ CREATE VIEW v_stock_difference as
 CREATE VIEW v_location_actuel as 
     SELECT v.*,f.nom as nom_fournisseur FROM v_stock_difference v JOIN fournisseur f ON v.FournisseurId = f.FournisseurId WHERE days > 0;
 
+-- employe
+
+create table Fonction(
+    id_fonction serial PRIMARY key,
+    libelle VARCHAR(50),
+    salaireHeure double PRECISION
+);
+insert into Fonction values
+(1,'Agriculteur',3000),
+(2,'Recolteur',4000),
+(3,'developpeur',10000) ;
+
+CREATE TABLE Employe (
+    id_emp SERIAL PRIMARY KEY NOT NULL, 
+    nom VARCHAR(255) NOT NULL,
+    prenomEmploye VARCHAR(255) NOT NULL,
+    sexe INT NOT NULL,
+    imgEmp VARCHAR(255),
+    id_fonction int,
+    dateEmbauche Date NOT NULL,
+    commentaire text
+);
+alter table Employe add foreign key (id_fonction) references fonction (id_fonction);
+
+create view infoEmp as select E.*,F.libelle from employe E, fonction F where F.id_fonction = E.id_fonction;
