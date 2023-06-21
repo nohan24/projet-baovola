@@ -135,14 +135,27 @@ CREATE TABLE caisse(
 );
 
 CREATE VIEW v_mouvement_financier AS
-    SELECT Date_caisse AS date,Entree,Sortie,Libelle,Entree - Sortie AS solde
-    FROM caisse
-;
+    SELECT
+        Date_transac AS date,
+        SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) AS Entree,
+        SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END) AS Sortie,
+        Libelle,
+        (SUM(CASE WHEN etat = 7 THEN Quantite * Unitaire ELSE 0 END) - SUM(CASE WHEN etat = 6 THEN Quantite * Unitaire ELSE 0 END)) AS solde
+    FROM
+        transac
+    GROUP BY
+        Date_transac, Libelle;
+
 
 CREATE TABLE unite (
     UniteId SERIAL PRIMARY KEY, 
     Nom_unite VARCHAR(60) NOT NULL
 );
+insert into unite(Nom_unite) values('Kg');
+insert into unite(Nom_unite) values('KW');
+insert into unite(Nom_unite) values('Litre');
+insert into unite(Nom_unite) values('Location journalier');
+insert into unite(Nom_unite) values('Consommation periodique');
 
 CREATE TABLE transac(
     TransacId SERIAL PRIMARY KEY,
