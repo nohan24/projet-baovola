@@ -99,8 +99,8 @@
             </div>
             <div class="d-flex align-items-end gap-4">
                 <div class="mb-3 d-flex col-5 genre">
-                    <input type="radio" name="genre" id="H" value="0" style="display: none">
-                    <input type="radio" name="genre" id="F" value="1" style="display: none">
+                    <input type="radio" name="genre" id="H" value="0" style="display: none" required>
+                    <input type="radio" name="genre" id="F" value="1" style="display: none" required>
                     <label for="H" id="laH"><i class="fa-sharp fa-solid fa-mars genger H" id="LH"></i></label>
                     <label for="F" id="laF"><i class="fa-sharp fa-solid fa-venus genger F" id="LF"></i></label>
                 </div>
@@ -133,7 +133,7 @@
             <tr style="justify-content: space-around;">
                 <th class="col-2">Date d'embauche</th>
                 <th class="col-2">Fonction</th>
-                <th class="col-4">Nom</th>
+                <th class="col-4">Nom & Prénom</th>
                 <th class="col-2">Action</th>
             </tr>
         </thead>
