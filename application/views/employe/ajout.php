@@ -70,7 +70,7 @@
                         <i class="img fa-solid fa-plus"></i>
                     </div>
                     <img alt="" id="input-img" class="emp-img" width="100%" height="200px" style="display: none">
-                    <div class="align-items-center" style="width: 100%, text-align: center;">
+                    <div class="align-items-center" style="width: 100%; text-align: center;">
                         <p id="message-valid" class="message" style="display: none"><i class="fa-solid fa-circle-check" style="color: green"></i> Photo valider!</p>
                         <p id="message-invalid" class="message" style="display: none;"><i class="fa-solid fa-circle-exclamation" style="color: red"></i> Photo non valide!</p>
                     </div>
@@ -114,9 +114,9 @@
                 </div>
             </div>
             <label>Date de naissance : </label>
-            <input type="date" name="date"><br>
+            <input type="date" name="dtn"><br>
             <label>Date d'embauche: </label>
-            <input type="date" name="date">
+            <input type="date" name="date_embauche">
         </div>
 
     </form>
@@ -131,7 +131,7 @@
     <table class="table table-borderless">
         <thead>
             <tr style="justify-content: space-around;">
-                <th class="col-2">Date</th>
+                <th class="col-2">Date d'embauche</th>
                 <th class="col-2">Fonction</th>
                 <th class="col-4">Nom</th>
                 <th class="col-2">Action</th>

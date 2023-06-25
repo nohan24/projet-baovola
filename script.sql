@@ -222,10 +222,13 @@ create table Fonction(
     libelle VARCHAR(50),
     salaireHeure double PRECISION
 );
+
 insert into Fonction values
 (1,'Agriculteur',3000),
 (2,'Recolteur',4000),
-(3,'developpeur',10000) ;
+(3,'Gardien',10000)
+;
+
 
 CREATE TABLE Employe (
     id_emp SERIAL PRIMARY KEY NOT NULL, 
@@ -234,6 +237,7 @@ CREATE TABLE Employe (
     sexe INT NOT NULL,
     imgEmp VARCHAR(255),
     id_fonction int,
+    dtn DATE NOT NULL,
     dateEmbauche Date NOT NULL,
     commentaire text
 );

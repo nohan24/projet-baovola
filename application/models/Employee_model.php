@@ -3,8 +3,8 @@ class Employee_model extends CI_Model
 {
     public function insertEmp($data, $sary)
     {
-        $sql = "insert into employe (nom, prenomEmploye, sexe, imgEmp, id_fonction , dateEmbauche, commentaire) values (%s, %s, %s, %s, %s ,%s ,%s)";
-        $req = sprintf($sql, $this->db->escape($data['nom']), $this->db->escape($data['prenom']), $data['genre'], $this->db->escape($sary), $data['fonction'], $this->db->escape($data['date']), $this->db->escape($data['commentaire']));
+        $sql = "insert into employe (nom, prenomEmploye, sexe, imgEmp, id_fonction ,dtn, dateEmbauche, commentaire) values (%s, %s, %s, %s, %s, %s ,%s ,%s)";
+        $req = sprintf($sql, $this->db->escape($data['nom']), $this->db->escape($data['prenom']), $data['genre'], $this->db->escape($sary), $data['fonction'], $this->db->escape($data['dtn']), $this->db->escape($data['date_embauche']), $this->db->escape($data['commentaire']));
         $this->db->query($req);
     }
 
