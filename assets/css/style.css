@@ -244,7 +244,9 @@ tr {
     border-bottom: thin solid #F1F1F1;
 }
 
-.local {
+.local,
+.champs,
+.charge {
     width: 100%;
     padding: 4px 20px;
     color: white;
@@ -254,7 +256,9 @@ tr {
     background-color: var(--secondary);
 }
 
-.exportation {
+.exportation,
+.entrepot,
+.produit {
     width: 100%;
     padding: 4px 20px;
     color: white;
@@ -288,9 +292,12 @@ option {
 label {
     color: #92A792;
     font-size: 14px;
+    width: 130px;
+}
 
-    width: 100px;
-
+.label {
+    color: #92A792;
+    font-size: 14px;
 }
 
 .btn-1 {
@@ -302,8 +309,8 @@ label {
 .btn-2 {
     background-color: rgb(200, 31, 31);
     color: white;
-    padding: 6px 10px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -327,6 +334,7 @@ label {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 100%;
 }
 
 .btn-3:hover {
@@ -342,6 +350,7 @@ label {
     color: white;
     padding: 6px 10px;
     border-radius: 5px;
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -359,11 +368,146 @@ label {
 .link {
     width: 30px;
     height: 30px;
-
 }
 
 .success {
     color: white;
     background-color: var(--primary);
+    font-size: 14px;
+    width: 200px;
+    padding: 3px 0;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    gap: 1;
+    align-items: center;
+    justify-content: center;
+}
 
+.error {
+    color: white;
+    background-color: rgb(200, 31, 31);
+    font-size: 14px;
+    width: 200px;
+    padding: 3px 0;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    gap: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.success i,
+.error i {
+    color: white;
+    font-size: 12px;
+}
+
+.etat-card {
+    background-color: #eb7d380a;
+    border-radius: 5px;
+    padding: 20px 30px;
+    width: calc(100% / 3);
+}
+
+.img {
+    position: relative;
+    color: var(--background);
+    font-size: 75px;
+    top: 25%
+}
+
+.lb-img {
+    width: 100%;
+}
+
+.img-box {
+    padding: 10%;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+    text-align: center;
+    height: 200px;
+    position: relative;
+    width: 100%;
+}
+
+.img-box:hover,
+#input-img:hover {
+    cursor: pointer;
+}
+
+.fa-check,
+.fa-x {
+    color: white;
+    font-size: 20px;
+    left: 10%;
+    position: relative;
+}
+
+.btn-5 {
+    background-color: var(--primary);
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 20px;
+}
+
+.btn-6 {
+    background-color: var(--secondary);
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 20px;
+}
+
+.submit {
+    justify-content: space-evenly;
+}
+
+.genger {
+    font-size: 20px;
+    padding: 20%;
+    border-radius: 100%;
+}
+
+.H {
+    border: 2px solid rgb(38, 38, 112);
+    color: rgb(38, 38, 112);
+}
+
+.F {
+    border: 2px solid rgb(171, 12, 100);
+    color: rgb(171, 12, 100);
+    padding: 20% 22%;
+}
+
+.genre {
+    padding-left: 7%;
+    justify-content: space-evenly;
+}
+
+.genger:hover {
+    cursor: pointer;
+}
+
+#Ha {
+    background-color: rgb(38, 38, 112);
+}
+
+#Fa {
+    background-color: rgb(171, 12, 100);
+}
+
+#message-valid {
+    color: green;
+}
+
+#message-invalid {
+    color: red;
+}
+
+.line {
+    width: 100%;
+    border-bottom: thin solid rgba(128, 128, 128, 0.297);
 }

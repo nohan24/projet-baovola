@@ -8,7 +8,7 @@
         text-align: center;
     }
 
-    .ta td {
+    td {
 
         border-radius: 50px;
         width: 40px;
@@ -19,18 +19,24 @@
         justify-content: center;
     }
 
-    .ta th {
+    th {
         text-align: center;
     }
 
-    .ta tr {
+    tr {
         display: flex;
         align-items: center;
         border: none;
     }
 
-    .ta th {
+    th {
         width: 50px;
+    }
+
+    td,
+    tr,
+    th {
+        color: #191e16;
     }
 
     .not:hover {
@@ -49,54 +55,79 @@
         color: #fff;
         margin: 0 20px;
     }
+
+    .today {
+        background-color: grey;
+    }
 </style>
+
 <div class="p-1">
-    <h2 class="mb-3">Insertion charge</h2>
+    <h2 class="mb-3">Matériel</h2>
     <div class="card">
         <div class="row">
-            <form action="<?php echo site_url("finance/insertCharge"); ?>" method="post" class="d-flex gap-2 px-5 py-3">
-                <input type="hidden" name="date_transac" id="date-mvt">
+            <div class="col-10 mb-2 d-flex align-items-center">
+                <h4 class="me-4">Achat de matériel</h4>
+                <?php
+                if ($state == "add") { ?>
+                    <span class="success ms-2"><i class="fa-solid fa-check"></i> Achat validé</span>
+                <?php }
+                if ($state == "error") { ?>
+                    <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Achat non validé</span>
+                <?php }
+                ?>
+            </div>
+
+            <form action="<?php echo site_url('materiel/insertionAchat'); ?>" method="post" class="d-flex gap-2 px-5 py-3">
+                <input type="hidden" name="date" id="date-mvt">
                 <div class="w-50">
                     <div class="mb-3 d-flex flex-column">
-                        <label class="mb-2" for="libelle">Libellé : </label>
-                        <div class="d-flex align-items-end gap-1">
-                            <input type="text" name="libelle" placeholder="Libellé">
-                        </div>
-                    </div>
-                    <div class="mb-3 d-flex flex-column">
-                        <label class="mb-2" for="quantite">Quantité : </label>
-                        <div class="d-flex align-items-end gap-1">
-                            <input type="text" name="quantite" placeholder="Quantité">
-                        </div>
-                    </div>
-                    <div class="mb-3 d-flex flex-column">
-                        <label class="mb-2" for="unite">Unite : </label>
-                        <select name="unite">
+                        <label class="mb-2" for="fournisseur">Fournisseur : </label>
+                        <select name="fournisseur">
                             <?php
-                            foreach ($unites as $unite) { ?>
-                                <option value="<?php echo $unite['uniteid']; ?>"><?php echo $unite['nom_unite']; ?></option>
+                            foreach ($fournisseurs as $f) { ?>
+                                <option value="<?php echo $f['fournisseurid']; ?>"><?php echo $f['nom']; ?></option>
                             <?php }
                             ?>
                         </select>
                     </div>
                     <div class="mb-3 d-flex flex-column">
-                        <label class="mb-2" for="unitaire">Prix unitaire : </label>
-                        <div class="d-flex align-items-end gap-1">
-                            <input type="text" name="unitaire" placeholder="Prix Unitaire">
+                        <label class="mb-2" for="nom">Nom du matériel : </label>
+                        <div>
+                            <input type="text" name="nom" placeholder="Entrez le nom ici" required>
                         </div>
                     </div>
-                    <input type="submit" value="Valider" class="btn-1">
+                    <div class="mb-3 d-flex flex-column">
+                        <label class="mb-2" for="type">Type d'achat : </label>
+                        <select name="type">
+                            <option value="1">Entrepôt</option>
+                            <option value="2">Champs</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <label class="mb-2" for="quantite">Quantité : </label>
+                        <div>
+                            <input type="number" min="1" value="1" name="quantite" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <label class="mb-2" for="pu">Prix unitaire : </label>
+                        <div class="d-flex align-items-end gap-2">
+                            <input type="number" name="pu" min="1" value="1" required>
+                            <b style="font-size:14px; background:transparent;">Ariary</b>
+                        </div>
+                    </div>
+                    <input type="submit" value="Valider l'achat" class="btn-1">
                 </div>
                 <div class="w-50 d-flex justify-content-center">
                     <div>
-                        <p class="date-picked">Date actuellement choisie : <span id="picked"></span></p>
+                        <p class="date-picked">Date actuellement choisie : <span id="picked">2/7/2022</span></p>
                         <p class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-circle" style="font-size:10px; color: #eb7c38"></i> Date d'aujourd'hui</p>
                         <div id="calender-header" class="d-flex align-items-center justify-content-center mb-2">
                             <button id="pm"><i style="color:#264026; font-size:12px;" class="fa-solid fa-chevron-left"></i></button>
                             <span id="month" style="color:#264026; text-align:center;"></span>
                             <button id="nm"><i style="color:#264026; font-size:12px;" class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <table class="table table-borderless ta">
+                        <table class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th>D</th>
@@ -118,53 +149,8 @@
         </div>
     </div>
 </div>
-<div class="p-1 mt-3">
-    <h2 class="mb-3">Finance</h2>
-    <div class="card">
-        <div class="row">
-            <div class="col-10 mb-2 d-flex align-items-center">
-                <h4 class="me-4">Charge</h4>
-            </div>
 
-        </div>
-        <div style="margin-bottom: 20px; background:transparent;">
-            <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par libellé">
-        </div>
 
-        <table class="table table-borderless" id="filter">
-            <thead>
-                <tr class="text-center">
-                    <th scope="col">Date</th>
-                    <th scope="col">Libellé</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Unité</th>
-                    <th scope="col">Coût Unitaire</th>
-                    <th scope="col">Montant</th>
-                </tr>
-            </thead>
-            <div class="line"></div>
-            <tbody>
-                <?php
-                foreach ($charge as $c) { ?>
-                    <tr class="text-center">
-                        <td><b style="background:transparent;"><?php echo $c['date']; ?></b></td>
-                        <td><?php echo $c['libelle']; ?></td>
-                        <td><?php echo $c['quantite']; ?></td>
-                        <td><?php echo $c['unite']; ?></td>
-                        <td><?php echo number_format(doubleval($c['cout_unitaire']), 2); ?> Ar</td>
-                        <td><b><?php echo number_format(doubleval($c['montant']), 2); ?> Ar</b></td>
-                    </tr>
-                <?php }
-                ?>
-            </tbody>
-        </table>
-        <?php if (count($charge) == 0) { ?>
-            <b class="text-center">Vide</b>
-        <?php } ?>
-    </div>
-</div>
-<script src="<?php echo base_url('assets/js/filtrage.js'); ?>"></script>
 <script>
     const picked = document.getElementById("picked");
     const month = document.getElementById("month");
