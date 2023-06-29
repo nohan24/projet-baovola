@@ -19,7 +19,7 @@ class Employe extends CI_Controller
     }
 
     public function PresenceEmploye(){
-        $data['title'] = "Présence Employé";
+        $data['title'] = "Présence Employées";
         $data['content'] = "employe/presence";
         $data['employes'] = $this->Employee_model->getAllEmp();
         $this->load->view('components/body', $data);
