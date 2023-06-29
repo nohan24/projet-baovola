@@ -18,6 +18,13 @@ class Employe extends CI_Controller
         $this->load->view('components/body', $data);
     }
 
+    public function PresenceEmploye(){
+        $data['title'] = "Présence Employé";
+        $data['content'] = "employe/presence";
+        $data['employes'] = $this->Employee_model->getAllEmp();
+        $this->load->view('components/body', $data);
+    }
+
     public function insertEmployee()
     {
         if (!empty($_FILES['image']['name'])) {
