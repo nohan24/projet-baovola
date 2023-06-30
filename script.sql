@@ -15,41 +15,6 @@ CREATE TABLE entrepot(
 );
 
 CREATE TABLE entrepot_non_dispo(
-    endId SERIAL PRIMARY KEY,
-    EntrepotId INT,
-    FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
-);
-
-CREATE VIEW v_charge AS
-    SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS cout_unitaire,t.Quantite * t.Unitaire AS montant
-    FROM transac t
-    JOIN unite u ON t.UniteId = u.UniteId
-    WHERE t.etat = 6
-;
-CREATE VIEW v_vente AS
-    SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS prix_unitaire,t.Quantite * t.Unitaire AS montant
-    FROM transac t
-    JOIN unite u ON t.UniteId = u.UniteId
-    WHERE t.etat = 7
-;
-
-CREATE SEQUENCE produit_seq;
-
-CREATE TABLE produit (
-    ProduitId INT PRIMARY KEY DEFAULT(nextval('produit_seq')), 
-    Nom_produit VARCHAR(60) NOT NULL
-);
-
-CREATE SEQUENCE entrepot_seq;
-
-CREATE TABLE entrepot(
-    EntrepotId INT PRIMARY KEY DEFAULT(nextval('entrepot_seq')),
-    Adresse VARCHAR(80) NOT NULL,
-    Superficie DOUBLE PRECISION NOT NULL,
-    Hauteur DOUBLE PRECISION NOT NULL
-);
-
-CREATE TABLE entrepot_non_dispo(
     entrepot_non_dispo_dId SERIAL PRIMARY KEY,
     EntrepotId INT,
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
@@ -241,6 +206,7 @@ CREATE TABLE Employe (
     dateEmbauche Date NOT NULL,
     commentaire text
 );
+
 alter table Employe add foreign key (id_fonction) references fonction (id_fonction);
 
-create view infoEmp as select E.*,F.libelle from employe E, fonction F where F.id_fonction = E.id_fonction;
+create view v_infoEmp as select E.*,F.libelle from employe E, fonction F where F.id_fonction = E.id_fonction;

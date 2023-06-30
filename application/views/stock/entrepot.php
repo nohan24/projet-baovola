@@ -1,7 +1,17 @@
 <div class="p-1">
     <h2 class="mb-3">Entrepôt</h2>
     <div class="card mb-2">
-        <h4>Ajout d'un entrepôt</h4>
+        <div class="col-10 mb-2 d-flex align-items-center">
+            <h4 class="me-4">Ajout entrepôt</h4> <?php
+                                                    if ($state == "delete") { ?>
+                <span class="success ms-2"><i class="fa-solid fa-check me-4"></i> Entrepôt supprimé</span>
+            <?php }
+                                                    if ($state == "error") { ?>
+                <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Suppression non validé</span>
+            <?php }
+            ?>
+        </div>
+
         <form action="<?php echo site_url("stock/insertionEntrepot"); ?>" method="post">
             <div class="mb-3 d-flex flex-column">
                 <label class="mb-2" for="adresse">Adresse : </label>
@@ -62,7 +72,7 @@
                     <td><?php echo $entrepot['adresse']; ?></td>
                     <td><?php echo $entrepot['superficie']; ?> <b>m²</b></td>
                     <td><?php echo $entrepot['hauteur']; ?> <b>m</b></td>
-                    <td class="d-flex justify-content-center gap-2"> <a href="<?php echo site_url('stock/modification/entrepot/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
+                    <td class="d-flex justify-content-center gap-2"> <a href="<?php echo site_url('stock/modification/entrepot/' . $entrepot['entrepotid']); ?>" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="<?php echo site_url('stock/entrepot_delete/' . $entrepot['entrepotid']); ?>" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                 </tr>
             <?php }
             ?>
