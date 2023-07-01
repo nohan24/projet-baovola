@@ -67,4 +67,24 @@ class Materiel extends CI_Controller
         }
         $this->load->view('components/body', $data);
     }
+
+    public function fournisseur_delete($id)
+    {
+        $this->Materiel_model->deleteFournisseur($id);
+        redirect(site_url("materiel/fournisseur"));
+    }
+
+    public function modifie_fournisseur($id = "")
+    {
+        if ($this->input->post()) {
+            $this->Materiel_model->modifEmploye($_POST);
+            redirect(site_url('materiel/fournisseur'));
+        } else {
+            $data['id'] = $id;
+            $data['title'] = 'Modification.';
+            $data['content'] = 'materiel/modifier_fournisseur';
+            $data['fournisseur'] = $this->Materiel_model->getFournisseur($id);
+            $this->load->view('components/body', $data);
+        }
+    }
 }

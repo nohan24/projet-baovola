@@ -2,7 +2,16 @@
     <h2 class="mb-3">Produit</h2>
     <div class="card">
         <div class="row mb-4">
-            <h4 class="mb-3">Ajout d'un nouveau produit</h4>
+            <div class="col-10 mb-2 d-flex align-items-center">
+                <h4 class="me-4">Ajout d'un nouveau produit</h4> <?php
+                                                                    if ($state == "delete") { ?>
+                    <span class="success ms-2"><i class="fa-solid fa-check me-4"></i> Produit supprimé</span>
+                <?php }
+                                                                    if ($state == "error") { ?>
+                    <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation me-2"></i> Suppression non validé</span>
+                <?php }
+                ?>
+            </div>
             <form action="<?php echo site_url('stock/repartition'); ?>" method="post" class="w-50">
                 <div class="mb-3 d-flex flex-column">
                     <label class="mb-2" for="quantite">Produit : </label>

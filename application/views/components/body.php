@@ -92,7 +92,13 @@
                             Employé
                         </div>
                         <li class="item">
-                            <a href="#">Second sublink</a>
+                            <a href="<?php echo site_url("Employe/AjoutEmploye") ?>"><i class="fa-regular fa-circle"></i> Ajouter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#"><i class="fa-regular fa-circle"></i> Présence</a>
+                        </li>
+                        <li class="item">
+                            <a href="#"><i class="fa-regular fa-circle"></i> Salaire</a>
                         </li>
                     </ul>
                 </li>

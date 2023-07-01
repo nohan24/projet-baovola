@@ -47,6 +47,7 @@ class Stock extends CI_Controller
     public function entrepot($where = "", $id = -1)
     {
         $data['title'] = "Entrepôt.";
+        $data['state'] = $where;
         if ($id == -1) {
             $data['content'] = "stock/entrepot";
             $data['produits'] = $this->Stock_model->getProduit();
@@ -57,9 +58,10 @@ class Stock extends CI_Controller
         $this->load->view('components/body', $data);
     }
 
-    public function produit()
+    public function produit($state = "")
     {
         $data['title'] = "Produit.";
+        $data['state'] = $state;
         $data['content'] = "stock/produit";
         $data['produits'] = $this->Stock_model->getProduit();
         $this->load->view('components/body', $data);
@@ -89,8 +91,20 @@ class Stock extends CI_Controller
 
     public function deleteProduit($id)
     {
-        $this->Stock_model->deleteProd($id);
-        redirect(site_url('stock/produit'));
+        $a = $this->Stock_model->deleteProd($id);
+        if ($a == 1) redirect(site_url('stock/produit/delete'));
+        else {
+            redirect(site_url('stock/produit/error'));
+        }
+    }
+
+    public function entrepot_delete($id)
+    {
+        $a = $this->Stock_model->deleteEntrepot($id);
+        if ($a == 1) redirect(site_url('stock/entrepot/success'));
+        else {
+            redirect(site_url('stock/entrepot/error'));
+        }
     }
 
     public function insertionMvtSortie()
@@ -108,11 +122,11 @@ class Stock extends CI_Controller
     public function insertionMvtEntre()
     {
         $state = $this->Stock_model->insertEntre($_POST);
-        if ($state == -1) {
-            redirect(site_url('stock/mouvement/entree/limit'));
-        }
         if ($state == 1) {
             redirect(site_url('stock/mouvement/entree/add'));
+        }
+        if ($state == -1) {
+            redirect(site_url('stock/mouvement/entree/limit'));
         }
         redirect(site_url('stock/mouvement/entree/error'));
     }

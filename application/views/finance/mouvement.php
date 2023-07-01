@@ -9,16 +9,15 @@
         </div>
         <div style="margin-bottom: 20px; background:transparent;">
             <input type="text" id="filter0" onkeyup="filterDate()" placeholder="Filtrer par date">
-            <input type="text" id="filter2" onkeyup="filterEntrepot()" placeholder="Filtrer par libellé">
+            <input type="text" id="filter1" onkeyup="filterNom()" placeholder="Filtrer par libellé">
         </div>
 
         <table class="table table-borderless" id="filter">
             <thead>
                 <tr class="text-center">
                     <th scope="col">Date</th>
-                    <th scope="col">Entrée</th>
-                    <th scope="col">Sortie</th>
                     <th scope="col">Libellé</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Solde</th>
                 </tr>
             </thead>
@@ -29,10 +28,9 @@
                 foreach ($mouvement as $m) { ?>
                     <tr class="text-center">
                         <td><b style="background:transparent;"><?php echo $m['date']; ?></b></td>
-                        <td><?php echo $m['entree']; ?></td>
-                        <td><?php echo $m['sortie']; ?></td>
                         <td><?php echo $m['libelle']; ?></td>
-                        <td><b><?php echo $m['solde']; ?></b></td>
+                        <td><span class="<?php echo strtolower($m['entree'] == 6 ? "Charge" : "Produit"); ?>"><?php echo $m['entree'] == 6 ? "Charge" : "Produit"; ?></span></td>
+                        <td><b><?php echo number_format(doubleval($m['solde']), 2); ?> Ar</b></td>
                         <?php $resultat += $m['solde']; ?>
                     </tr>
                 <?php }
@@ -48,7 +46,7 @@
             <thead>
                 <tr class="text-center">
                     <th scope="col">Résultat</th>
-                    <th scope="col"><?php echo number_format(doubleval($resultat), 2); ?> </th>
+                    <th scope="col"><?php echo number_format(doubleval($resultat), 2); ?> Ar</th>
                 </tr>
             </thead>
         </table>

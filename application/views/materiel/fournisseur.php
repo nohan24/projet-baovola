@@ -49,7 +49,7 @@
                         <td><?php echo $f['nom']; ?></td>
                         <td><?php echo $f['coordonnee']; ?></td>
                         <td><?php echo $f['adresse']; ?></td>
-                        <td class="d-flex justify-content-center gap-2"> <a href="#" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="#" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
+                        <td class="d-flex justify-content-center gap-2"> <a href="<?php echo site_url('materiel/modifie_fournisseur/' . $f['fournisseurid']); ?>" class="btn-4 link"><i class="fa-solid fa-pen" style="color:white; font-size:14px;"></i></a> <a href="<?php echo site_url('materiel/fournisseur_delete/' . $f['fournisseurid']); ?>" class="btn-2 link"><i class="fa-solid fa-trash" style="color:white; font-size:14px;"></i></a></td>
                     </tr>
                 <?php }
                 ?>

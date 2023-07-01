@@ -15,41 +15,6 @@ CREATE TABLE entrepot(
 );
 
 CREATE TABLE entrepot_non_dispo(
-    endId SERIAL PRIMARY KEY,
-    EntrepotId INT,
-    FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
-);
-
-CREATE VIEW v_charge AS
-    SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS cout_unitaire,t.Quantite * t.Unitaire AS montant
-    FROM transac t
-    JOIN unite u ON t.UniteId = u.UniteId
-    WHERE t.etat = 6
-;
-CREATE VIEW v_vente AS
-    SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS prix_unitaire,t.Quantite * t.Unitaire AS montant
-    FROM transac t
-    JOIN unite u ON t.UniteId = u.UniteId
-    WHERE t.etat = 7
-;
-
-CREATE SEQUENCE produit_seq;
-
-CREATE TABLE produit (
-    ProduitId INT PRIMARY KEY DEFAULT(nextval('produit_seq')), 
-    Nom_produit VARCHAR(60) NOT NULL
-);
-
-CREATE SEQUENCE entrepot_seq;
-
-CREATE TABLE entrepot(
-    EntrepotId INT PRIMARY KEY DEFAULT(nextval('entrepot_seq')),
-    Adresse VARCHAR(80) NOT NULL,
-    Superficie DOUBLE PRECISION NOT NULL,
-    Hauteur DOUBLE PRECISION NOT NULL
-);
-
-CREATE TABLE entrepot_non_dispo(
     entrepot_non_dispo_dId SERIAL PRIMARY KEY,
     EntrepotId INT,
     FOREIGN KEY(EntrepotId) REFERENCES entrepot(EntrepotId)
@@ -120,29 +85,20 @@ CREATE VIEW v_entre  as
     select * from detail_entrepot where produitid in (select produitid from v_produit_dispo);
 
 CREATE VIEW v_join_detail as 
-    SELECT d.detail_entrepot_Id,e.entrepotid,produitid,adresse,superficie,hauteur,quantitestock from entrepot e inner join v_detail_dispo d on e.entrepotid = d.entrepotid;
+    SELECT d.detail_entrepot_Id,e.entrepotid,produitid,adresse,superficie,hauteur,quantitestock from v_entrepot_dispo e inner join v_detail_dispo d on e.entrepotid = d.entrepotid;
 
 CREATE VIEW v_etat_stock as  
     SELECT v.*,p.nom_produit,coalesce(coalesce(e.sum,0) - coalesce(s.sum,0),0) as instock from v_join_detail v left join v_sortie s on (v.entrepotid = s.entrepotid and v.produitid = s.produitid) left join v_entre e on (v.entrepotid = e.entrepotid and v.produitid = e.produitid) join produit p on v.produitid = p.produitid;
-
-
-CREATE TABLE caisse(
-    CaisseId SERIAL PRIMARY KEY,
-    Date_caisse DATE NOT NULL,
-    Entree double PRECISION,
-    Sortie double PRECISION,
-    Libelle VARCHAR(80) NOT NULL
-);
-
-CREATE VIEW v_mouvement_financier AS
-    SELECT Date_caisse AS date,Entree,Sortie,Libelle,Entree - Sortie AS solde
-    FROM caisse
-;
 
 CREATE TABLE unite (
     UniteId SERIAL PRIMARY KEY, 
     Nom_unite VARCHAR(60) NOT NULL
 );
+insert into unite(Nom_unite) values('Kg');
+insert into unite(Nom_unite) values('KW');
+insert into unite(Nom_unite) values('Litre');
+insert into unite(Nom_unite) values('Location journalier');
+insert into unite(Nom_unite) values('Consommation periodique');
 
 CREATE TABLE transac(
     TransacId SERIAL PRIMARY KEY,
@@ -154,6 +110,15 @@ CREATE TABLE transac(
     Unitaire double PRECISION,
     FOREIGN KEY(UniteId) REFERENCES unite(UniteId)
 );
+
+CREATE VIEW v_mouvement_financier AS
+    SELECT
+        Date_transac AS date,
+        etat as Entree,
+        Libelle,
+        (CASE WHEN etat = 6 THEN (Quantite * Unitaire * (-1)) ELSE Quantite * Unitaire END) AS solde
+    FROM
+        transac;
 
 CREATE VIEW v_charge AS
     SELECT t.Date_transac AS date,t.Libelle,t.Quantite,u.Nom_unite AS unite,t.Unitaire AS cout_unitaire,t.Quantite * t.Unitaire AS montant
@@ -215,3 +180,33 @@ CREATE VIEW v_stock_difference as
 CREATE VIEW v_location_actuel as 
     SELECT v.*,f.nom as nom_fournisseur FROM v_stock_difference v JOIN fournisseur f ON v.FournisseurId = f.FournisseurId WHERE days > 0;
 
+-- employe
+
+create table Fonction(
+    id_fonction serial PRIMARY key,
+    libelle VARCHAR(50),
+    salaireHeure double PRECISION
+);
+
+insert into Fonction values
+(1,'Agriculteur',3000),
+(2,'Recolteur',4000),
+(3,'Gardien',10000)
+;
+
+
+CREATE TABLE Employe (
+    id_emp SERIAL PRIMARY KEY NOT NULL, 
+    nom VARCHAR(255) NOT NULL,
+    prenomEmploye VARCHAR(255) NOT NULL,
+    sexe INT NOT NULL,
+    imgEmp VARCHAR(255),
+    id_fonction int,
+    dtn DATE NOT NULL,
+    dateEmbauche Date NOT NULL,
+    commentaire text
+);
+
+alter table Employe add foreign key (id_fonction) references fonction (id_fonction);
+
+create view v_infoEmp as select E.*,F.libelle from employe E, fonction F where F.id_fonction = E.id_fonction;

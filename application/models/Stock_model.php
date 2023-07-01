@@ -21,8 +21,32 @@ class Stock_model extends CI_Model
 
     public function deleteProd($id)
     {
+        $this->db->select('*');
+        $this->db->from('v_etat_stock');
+        $this->db->where('produitid', $id);
+        $d = $this->db->get()->result_array();
+        foreach ($d as $e) {
+            if ($e['instock'] != 0) {
+                return -1;
+            }
+        }
         $sql = "insert into produit_non_dispo values(default,%s)";
-        $this->db->query(sprintf($sql, $id));
+        return $this->db->query(sprintf($sql, $id));
+    }
+
+    public function deleteEntrepot($id)
+    {
+        $this->db->select('*');
+        $this->db->from('v_etat_stock');
+        $this->db->where('entrepotid', $id);
+        $d = $this->db->get()->result_array();
+        foreach ($d as $e) {
+            if ($e['instock'] != 0) {
+                return -1;
+            }
+        }
+        $sql = "insert into entrepot_non_dispo values(default,%s)";
+        return $this->db->query(sprintf($sql, $id));
     }
 
     public function insertEntrepot($e)
@@ -100,7 +124,7 @@ class Stock_model extends CI_Model
     public function insertEntre($data)
     {
         $ret = 0;
-        $this->db->select('instock');
+        $this->db->select('*');
         $this->db->from('v_etat_stock');
         $this->db->where('entrepotid', $data['entrepot']);
         $this->db->where('produitid', $data['produit']);
@@ -109,8 +133,8 @@ class Stock_model extends CI_Model
             return -1;
         }
         $sql = "insert into entre_stock values(default, %s, %s, %s, %s)";
-        $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape(trim($data['date'])), $data['quantite']));
-        return $ret;
+        $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape(trim($data['date'])), $data['quantite']));
+        return 1;
     }
 
     public function getEtatStock()

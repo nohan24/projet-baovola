@@ -32,5 +32,11 @@ class Finance_model extends CI_Model
         $query=	$this->db->query(sprintf("insert into transac(etat,Date_transac,Libelle,Quantite,UniteId,Unitaire) values(6,'%s','%s',%s,%s,%s)"
         ,$Date_transac,$Libelle,$Quantite,$UniteId,$Unitaire));
     }
+    public function getUnite(){
+        $sql="select * from unite";
+        $query=$this->db->query($sql);
+        $results = $query->result_array();
+        return $results;
+    }
 }
 ?>
