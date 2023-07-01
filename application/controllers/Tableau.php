@@ -6,12 +6,19 @@ class Tableau extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Tableau_model');
+        $this->load->model('Stock_model');
     }
 
     public function chart()
     {
+        $data['produit'] = $this->Stock_model->getProduit();
         $data['title'] = "Tableau de bord";
-        $data['content'] = "tableau/chart";     
+        $data['content'] = "tableau/chart";
         $this->load->view('components/body', $data);
+    }
+
+    public function getData($id)
+    {
+        echo ($this->Tableau_model->getStat($id));
     }
 }
