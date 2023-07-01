@@ -300,6 +300,64 @@ label {
     font-size: 14px;
 }
 
+.labelH2,
+.labelH22 {
+    color: var(--secondary);
+    font-size: 25px;
+}
+
+.nom {
+    color: #017c3f;
+    font-family: Coolvetica;
+}
+
+.salaire {
+    font-size: 20px;
+    color: rgb(0, 96, 141);
+}
+
+.temps {
+    font-size: 20px;
+    color: #0b9450;
+}
+
+.entree_sortie {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 10%;
+}
+
+.filtre_date {
+    padding: 25px 0;
+}
+
+.search_icon {
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    /* padding: 5px; */
+    margin-right: 12px;
+}
+
+.detail_icon {
+    width: 17px;
+    height: 17px;
+    background: transparent;
+    /* padding: 5px; */
+    margin-right: 2px;
+}
+
+.searchbar {
+    background: var(--background);
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+    outline: none;
+    width: max-content;
+    height: max-content;
+}
+
 .btn-1 {
     background-color: var(--primary);
     color: white;
@@ -363,6 +421,51 @@ label {
 
 .btn-4 i {
     margin: 0;
+}
+
+.btn-7 {
+    background-color: rgb(209, 209, 209);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-7:hover {
+    color: white;
+}
+
+.btn-7 i {
+    margin: 0;
+}
+
+.btn-submit {
+    background-color: #d1926b;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-submit:hover {
+    color: white;
+    background: var(--secondary);
+}
+
+.btn-submit i {
+    margin: 0;
+}
+
+.btn-4:hover,
+.btn-2:hover,
+.btn-7:hover {
+    transform: scale(1.4);
+    cursor: pointer;
 }
 
 .link {
@@ -510,4 +613,134 @@ label {
 .line {
     width: 100%;
     border-bottom: thin solid rgba(128, 128, 128, 0.297);
+}
+
+.popup {
+    width: max-content;
+    min-height: 100px;
+    max-height: max-content;
+    color: rgb(143, 93, 0);
+    position: fixed;
+    top: 20%;
+    right: 10px;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: Coolvetica;
+    z-index: 5;
+}
+
+#calendar2 {
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    border-collapse: collapse;
+}
+
+#calendar2 th,
+#calendar2 td {
+    width: calc(100% / 7);
+}
+
+#calendar2 td {
+    width: calc(100% / 7);
+    border: 3px solid rgb(255, 255, 255);
+    padding: 8px;
+}
+
+#calendar2 th {
+    background: var(--secondary);
+}
+
+#calendar2 td {
+    border-radius: 5px;
+    height: 100px;
+    transition: all .3s ease .1s;
+}
+
+#calendar2 td .jour {
+    color: rgb(25, 97, 156);
+    font-family: Coolvetica;
+    text-align: left;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+#calendar2 td .duree {
+    color: rgb(41, 41, 41);
+    font-family: Coolvetica;
+}
+
+#calendar2 td .entree,
+#calendar2 td .sortie {
+    color: white;
+}
+
+#calendar2 td:hover {
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+#calendar2 td:hover .jour,
+#calendar2 td:hover .duree {
+    color: white;
+}
+
+.empty-cell {
+    background-color: white;
+    ;
+    /* Couleur de fond grise */
+    color: #555;
+    /* Couleur de texte gris foncé */
+}
+
+.empty-cell:hover {
+    background: white;
+}
+
+.background_calendar {
+    background: var(--secondary);
+    color: rgb(255, 255, 255);
+}
+
+#calendar2 td:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.custom-div {
+    width: 60%;
+    height: 300px;
+    background-color: white;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgb(182, 182, 182);
+}
+
+.salaire_temps {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.payer {
+    padding: 10px 25px;
+    font-weight: bold;
+}
+
+.payer:hover {
+    background: var(--secondary);
+}
+
+.interaction {
+    display: flex;
+    /* justify-content: center; */
+    padding-right: 2rem;
+    gap: 1rem;
 }

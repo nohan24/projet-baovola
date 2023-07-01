@@ -88,21 +88,21 @@
     labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec'],
     datasets: [{
         label: 'Exportation',
-        data: ex,
-        backgroundColor: 'rgba(55, 26, 24, 0.2)',
-        borderColor: 'rgba(55, 26, 24, 1)',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: '#eb7c38',
+        borderColor: '#ad531b',
         borderWidth: 1
       },
       {
         label: 'Local',
-        data: [1, 12, 6, 9, 12, 3, 9, 2, 5, 14, 1, 7],
-        backgroundColor: 'rgba(1, 47, 104, 0.2)',
-        borderColor: 'rgba(1, 47, 104, 1)',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: '#264026',
+        borderColor: '#162516',
         borderWidth: 1
       },
       {
         label: 'Perte',
-        data: [7, 12, 6, 9, 12, 3, 9, 2, 5, 14, 1, 7],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: 'rgba(255, 26, 104, 0.2)',
         borderColor: 'rgba(255, 26, 104, 1)',
         borderWidth: 1
@@ -117,7 +117,11 @@
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Quantité sortie (Kg)'
+          }
         }
       }
     }

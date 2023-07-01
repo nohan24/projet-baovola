@@ -209,4 +209,61 @@ CREATE TABLE Employe (
 
 alter table Employe add foreign key (id_fonction) references fonction (id_fonction);
 
+create table historiqueEmp(
+    id_hystorique SERIAL PRIMARY KEY NOT NULL, 
+    id_emp int NOT NULL,
+    dateDepart date
+);
+alter table historiqueEmp add foreign key (id_emp) references Employe (id_emp);
+
+
+
+-- insert into Employe values
+-- (default,'ARIVELO', 'faly',1,null,3,'2003-06-07','2023-06-07',''),
+-- (default,'Andriamparany', 'ny aro',1,null,3,'2003-06-07','2023-06-07','')
+-- ;
+
+create table Presence(
+    id_emp int,
+    dateEntree timestamp,
+    dateSortie timestamp ,
+    FOREIGN KEY (id_emp) REFERENCES Employe(id_emp)
+);
+
+-- insert into Presence values(3,'2023-06-07 09:18:00','2023-06-07 17:00:00');
+-- insert into Presence values(3,'2023-06-08 09:00:00',null);
+-- insert into Presence values(4,'2023-06-07 08:00:00','2023-06-07 18:00:00');
+-- insert into Presence values(4,'2023-06-08 09:00:00','2023-06-08 15:00:00');
+
+-- update presence set dateSortie =  where id_emp = %s and dateEntree = ; 
+-- INSERT INTO presence values(1,'',null)
+--vue dernier action presence , sortie ou entree
+create or replace view V_dernier_action_presence as 
+select t.id_emp id_emp ,t.dateEntree,s.dateSortie from (select id_emp,max(dateEntree) as dateEntree from Presence 
+group by id_emp) as t  join Presence s on t.dateEntree = s.dateEntree and t.id_emp = s.id_emp;
+
+-- vue calcul salaire par mois
+create or replace view V_salaire_heure_mois as
+SELECT E.id_emp, EXTRACT(MONTH FROM P.dateEntree) AS mois,
+       EXTRACT(YEAR FROM P.dateEntree) AS annee,
+       SUM(F.salaireHeure * (EXTRACT(EPOCH FROM (P.dateSortie - P.dateEntree))/3600)) AS salaireMensuel,
+       SUM(EXTRACT(EPOCH FROM (P.dateSortie - P.dateEntree))/3600) AS tempsTravail
+FROM Presence P
+JOIN Employe E ON P.id_emp = E.id_emp
+JOIN Fonction F ON E.id_fonction = F.id_fonction
+GROUP BY mois, annee,E.id_emp;
+
+-- vue calcul salaire,temps par jour
+create or replace view V_temps_employe_jour as
+SELECT P.dateEntree,P.dateSortie,E.id_emp, EXTRACT(DAY FROM P.dateEntree) AS jour,EXTRACT(MONTH FROM P.dateEntree) AS mois,
+       EXTRACT(YEAR FROM P.dateEntree) AS annee,
+       SUM(EXTRACT(EPOCH FROM (P.dateSortie - P.dateEntree))/3600) AS tempsTravail
+FROM Presence P
+JOIN Employe E ON P.id_emp = E.id_emp
+JOIN Fonction F ON E.id_fonction = F.id_fonction
+GROUP BY jour,mois,annee,E.id_emp,P.dateEntree,P.dateSortie
+;
+
 create view v_infoEmp as select E.*,F.libelle from employe E, fonction F where F.id_fonction = E.id_fonction;
+ 
+create view EmpValide as select E.*,F.libelle from employe E, fonction F where f.id_fonction = E.id_fonction and  E.id_emp not in (select id_emp from historiqueEmp);
