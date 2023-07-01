@@ -19,7 +19,18 @@
             <img src="<?php echo base_url('assets/img/nav-icon.png'); ?>" alt="vegmarket-logo" class="w-75">
             <ul class="menu-items w-75" style="padding:0px;">
                 <li class="item">
-                    <a href="#"><i class="fa-solid fa-chart-simple"></i> Tableau de bord</a>
+                    <div class="submenu-item">
+                        <span><i class="fa-solid fa-chart-simple"></i> Tableau de bord</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <ul class="menu-items submenu">
+                        <div class="menu-title">
+                            <i class="fa-solid fa-chevron-left"></i>Tableau de bord
+                        </div>
+                        <li class="item">
+                            <a href="<?php echo site_url('tableau/chart'); ?>"><i class="fa-regular fa-circle"></i> Chart</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="item">
                     <div class="submenu-item">
