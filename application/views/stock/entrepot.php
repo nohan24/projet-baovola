@@ -17,7 +17,7 @@
                 <label class="mb-2" for="adresse">Adresse : </label>
                 <div class="d-flex align-items-end gap-2">
                     <input type="text" name="adresse" placeholder="Adresse de l'entrepôt" maxlength="80" required>
-                    <b style="font-size:14px; background:transparent;">80 caractères maximum</b>
+
                 </div>
             </div>
             <div class="mb-3 d-flex flex-column">

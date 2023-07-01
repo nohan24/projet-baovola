@@ -122,11 +122,11 @@ class Stock extends CI_Controller
     public function insertionMvtEntre()
     {
         $state = $this->Stock_model->insertEntre($_POST);
-        if ($state == -1) {
-            redirect(site_url('stock/mouvement/entree/limit'));
-        }
         if ($state == 1) {
             redirect(site_url('stock/mouvement/entree/add'));
+        }
+        if ($state == -1) {
+            redirect(site_url('stock/mouvement/entree/limit'));
         }
         redirect(site_url('stock/mouvement/entree/error'));
     }
