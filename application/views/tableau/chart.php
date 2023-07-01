@@ -18,9 +18,9 @@
   }
 
   .chartBox {
-    width: 700px;
-    padding: 20px;
-    border-radius: 20px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
     background: white;
   }
 </style>
@@ -85,7 +85,7 @@
 
   // setup 
   var data = {
-    labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec'],
+    labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
     datasets: [{
         label: 'Exportation',
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
