@@ -18,7 +18,7 @@
   }
 
   .chartBox {
-    width: 100%;
+    width: 98%;
     padding: 15px;
     border-radius: 10px;
     background: white;
