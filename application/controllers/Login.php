@@ -12,13 +12,13 @@ class Login extends CI_Controller {
 
 	public function check(){
 		$user=$this->input->post("username");
-		$mdp=$this->input->post("password");
+		$mdp=$this->input->post("passwrd");
 		$this->load->model('login');
 		if ($this->login->check_connexion($user,$mdp)==true) {
-			redirect('tableau/chart');
+			redirect(site_url('tableau/chart'));
 		}
 		else{
-			redirect('login');
+			redirect(site_url('login'));
 		}
 	}
 
