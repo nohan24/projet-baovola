@@ -69,7 +69,7 @@
                 <h4 class="me-4">Location de matériel</h4>
                 <?php
                 if ($state == "add") { ?>
-                    <span class="success ms-2"><i class="fa-solid fa-check"></i> Location validé</span>
+                    <span class="success ms-2">Location validé</span>
                 <?php }
                 if ($state == "error") { ?>
                     <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Location non validé</span>
@@ -124,7 +124,7 @@
                             <b style="font-size:14px; background:transparent;">jour(s)</b>
                         </div>
                     </div>
-                    <input type="submit" value="Valider l'achat" class="btn-1">
+                    <input type="submit" value="Valider la location" class="btn-1">
                 </div>
                 <div class="w-50 d-flex justify-content-center">
                     <div>

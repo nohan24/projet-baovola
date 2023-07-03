@@ -2,7 +2,7 @@
     <h2 class="mb-3">Matériel</h2>
     <div class="card">
         <div class="col-10 mb-2 d-flex align-items-center">
-            <h4 class="me-4">Inventaire des matériels loués</h4> <a href="<?php echo site_url("materiel/inventaire/achat"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Inventaire des achats ici</a>
+            <h4 class="me-4">Inventaire des matériels loués</h4> <a href="<?php echo site_url("materiel/inventaire/achat"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Historique des achats ici</a>
         </div>
         <table class="table table-borderless" id="filter">
             <thead>
@@ -11,7 +11,7 @@
                     <th scope="col">Nom du matériel</th>
                     <th scope="col">Fournisseur</th>
                     <th scope="col">Quantité</th>
-                    <th scope="col">Type</th>
+                    <th scope="col">Destination</th>
                     <th scope="col">Durée restante</th>
                 </tr>
             </thead>

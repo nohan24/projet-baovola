@@ -26,6 +26,9 @@ class Materiel_model extends CI_Model
         $ret = 0;
         $sql = "INSERT INTO achat_materiel VALUES(default,%s,%s,%s,%s,%s,%s)";
         $ret = $this->db->query(sprintf($sql, $data['fournisseur'], $this->db->escape($data['nom']), $this->db->escape($data['date']), $data['type'], $data['quantite'], $data['pu']));
+        $sql = "insert into transac values(default, 6, %s, %s, %s, 6, %s)";
+        $this->db->query(sprintf($sql, $this->db->escape($data['date']), $this->db->escape("Achat matériel : " . $data['nom']), $data['quantite'], $data['pu']));
+        $ret = 1;
         return $ret;
     }
 

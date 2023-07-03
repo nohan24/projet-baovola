@@ -99,6 +99,7 @@ insert into unite(Nom_unite) values('KW');
 insert into unite(Nom_unite) values('Litre');
 insert into unite(Nom_unite) values('Location journalier');
 insert into unite(Nom_unite) values('Consommation periodique');
+insert into unite(Nom_unite) values('Indefini');
 
 CREATE TABLE transac(
     TransacId SERIAL PRIMARY KEY,

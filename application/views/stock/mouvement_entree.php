@@ -68,7 +68,7 @@
             <div class="col-10 mb-2 d-flex align-items-center">
                 <h4 class="me-4">Mouvement d'entrée</h4> <a href="<?php echo site_url("stock/mouvement/sortie"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement de sortie ici</a><?php
                                                                                                                                                                                                                     if ($state == "add") { ?>
-                    <span class="success ms-2"><i class="fa-solid fa-check me-4"></i> Sortie validé</span>
+                    <span class="success ms-2"> Sortie validé</span>
                 <?php }
                                                                                                                                                                                                                     if ($state == "error") { ?>
                     <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Sortie non validé</span>

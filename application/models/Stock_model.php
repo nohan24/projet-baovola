@@ -114,8 +114,12 @@ class Stock_model extends CI_Model
         $sql = "insert into sortie_stock values(default, %s, %s, %s, %s, %s)";
         $ret = $this->db->query(sprintf($sql, $data['entrepot'], $data['produit'], $this->db->escape($data['date']), $data['quantite'], $data['type']));
         if ($data['type'] != 3) {
-            // $sql = "insert into ";
-            // $this->db->query();
+            $sql = "insert into transac values(default, 7, %s, %s, %s, 1, %s)";
+            $this->db->query(sprintf($sql, $this->db->escape($data['date']), $this->db->escape("Vente de produits"), $data['quantite'], $data['pu']));
+            $ret = 1;
+        } else {
+            $sql = "insert into transac values(default, 6, %s, %s, %s, 1, %s)";
+            $this->db->query(sprintf($sql, $this->db->escape($data['date']), $this->db->escape("Perte de produits"), $data['quantite'], $data['pu']));
             $ret = 1;
         }
         return $ret;

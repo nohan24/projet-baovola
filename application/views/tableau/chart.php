@@ -87,14 +87,14 @@
   var data = {
     labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
     datasets: [{
-        label: 'Exportation',
+        label: 'Local',
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: '#eb7c38',
         borderColor: '#ad531b',
         borderWidth: 1
       },
       {
-        label: 'Local',
+        label: 'Exportation',
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: '#264026',
         borderColor: '#162516',

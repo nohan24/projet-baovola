@@ -4,7 +4,7 @@
         <div class="col-10 mb-2 d-flex align-items-center">
             <h4 class="me-4">Ajout entrepôt</h4> <?php
                                                     if ($state == "delete") { ?>
-                <span class="success ms-2"><i class="fa-solid fa-check me-4"></i> Entrepôt supprimé</span>
+                <span class="success ms-2"> Entrepôt supprimé</span>
             <?php }
                                                     if ($state == "error") { ?>
                 <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Suppression non validé</span>

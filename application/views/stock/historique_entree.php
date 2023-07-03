@@ -28,7 +28,7 @@
                     <tr class="text-center">
                         <td><b style="background:transparent;"><?php echo $h['date_entre']; ?></b></td>
                         <td><?php echo $h['nom_produit']; ?></td>
-                        <td><b><?php echo $h['quantite']; ?></b> <span style="font-size:10px; background:transparent;">x1000 Kg</span></td>
+                        <td><b><?php echo number_format($h['quantite']); ?></b> <span style="font-size:10px; background:transparent;"> Kg</span></td>
                         <td><b><?php echo $h['adresse']; ?></b></td>
                     </tr>
                 <?php }

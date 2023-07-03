@@ -69,7 +69,7 @@
                 <h4 class="me-4">Achat de matériel</h4>
                 <?php
                 if ($state == "add") { ?>
-                    <span class="success ms-2"><i class="fa-solid fa-check"></i> Achat validé</span>
+                    <span class="success ms-2">Achat validé</span>
                 <?php }
                 if ($state == "error") { ?>
                     <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Achat non validé</span>

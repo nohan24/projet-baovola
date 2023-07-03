@@ -58,7 +58,7 @@
             <div class="col-10 mb-2 d-flex align-items-center">
                 <h4 class="me-4">Mouvement de sortie</h4> <a href="<?php echo site_url("stock/mouvement/entree"); ?>" class="link-redirect"><i class="fa-regular fa-hand-pointer"></i> Mouvement d'entrée ici</a><?php
                                                                                                                                                                                                                     if ($state == "add") { ?>
-                    <span class="success ms-2"><i class="fa-solid fa-check"></i> Sortie validé</span>
+                    <span class="success ms-2">Sortie validé</span>
                 <?php }
                                                                                                                                                                                                                     if ($state == "error") { ?>
                     <span class="error ms-2"><i class="fa-solid fa-triangle-exclamation"></i> Sortie non validé</span>
@@ -86,6 +86,13 @@
                         <div class="d-flex align-items-end gap-1">
                             <input type="text" name="quantite" placeholder="Quantité mouvementée">
                             <b style="font-size:14px; background:transparent;">x Kg</b>
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <label class="mb-2" for="quantite">Prix unitaire : </label>
+                        <div class="d-flex align-items-end gap-1">
+                            <input type="number" name="pu" value="0.00" min="0.01" step="0.01" required>
+                            <b style="font-size:14px; background:transparent;"> Ariary</b>
                         </div>
                     </div>
                     <div class="mb-3 d-flex flex-column">
