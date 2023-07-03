@@ -121,9 +121,11 @@
                         </li>
                         <li class="item">
                             <a href="<?php echo site_url('finance/charge'); ?>"><i class="fa-regular fa-circle"></i>Charges</a>
-
                         </li>
                     </ul>
+                </li>
+                <li class="item">
+                    <a href="<?php echo site_url('login/logout'); ?>"><i class="fa-solid fa-right-from-bracket me-4"></i>Logout</a>
                 </li>
             </ul>
         </div>

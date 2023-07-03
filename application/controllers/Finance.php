@@ -6,6 +6,7 @@ class Finance extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Finance_model');
+        session_start();
     }
 
     public function caisse()

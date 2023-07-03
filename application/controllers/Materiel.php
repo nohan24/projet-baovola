@@ -6,6 +6,7 @@ class Materiel extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Materiel_model');
+        session_start();
     }
 
     public function fournisseur()

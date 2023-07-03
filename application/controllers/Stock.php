@@ -6,6 +6,7 @@ class Stock extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Stock_model');
+        session_start();
     }
 
     public function historique($mv = "sortie")

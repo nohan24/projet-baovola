@@ -7,7 +7,9 @@ class Tableau extends CI_Controller
         parent::__construct();
         $this->load->model('Tableau_model');
         $this->load->model('Stock_model');
+        session_start();
     }
+
 
     public function chart()
     {
